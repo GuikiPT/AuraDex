@@ -3,14 +3,13 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ChevronLeft, Heart, Star, Zap, Shield, Users, Baby, ArrowRight, ChevronRight } from 'lucide-react';
+import { ChevronLeft, Heart, Star, Zap, Shield, Users, Baby, ArrowRight, ChevronRight, Ruler, Book, BarChart, Activity } from 'lucide-react';
 import { Pokemon, PokemonSpecies, EvolutionChain, TypeEffectiveness, EvolutionChainLink, EvolutionDetail } from '@/types/pokemon';
 import { pokemonApi, calculateTypeEffectiveness, formatPokemonName, getPokemonId } from '@/utils/pokemon-api';
 import { TYPE_COLORS, EGG_GROUP_NAMES, GROWTH_RATES } from '@/constants/pokemon';
 import TypeIcon from './TypeIcon';
 import StatChart from './StatChart';
 import LoadingSpinner from './LoadingSpinner';
-import Footer from './Footer';
 import SpritesModal from './SpritesModal';
 
 interface PokemonDetailProps {
@@ -26,6 +25,7 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [showSpritesModal, setShowSpritesModal] = useState(false);
   const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
+  const [statChartVariant, setStatChartVariant] = useState<'horizontal' | 'radial'>('horizontal');
   const router = useRouter();
 
   useEffect(() => {
@@ -135,7 +135,10 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
       {/* Description */}
       <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Description</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+            <Book className="mr-2" size={20} />
+            Description
+          </h3>
           {englishDescriptions.length > 1 && (
             <div className="flex items-center space-x-2">
               <button
@@ -197,7 +200,10 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
 
       {/* Pokedex Data */}
       <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Pokédex Data</h3>
+        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+          <Ruler className="mr-2" size={20} />
+          Pokédex Data
+        </h3>
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-1">
             <span className="text-sm text-gray-500 dark:text-gray-400">Height</span>
@@ -207,29 +213,109 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
             <span className="text-sm text-gray-500 dark:text-gray-400">Weight</span>
             <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{(pokemon.weight / 10).toFixed(1)} kg</p>
           </div>
-          <div className="space-y-1">
-            <span className="text-sm text-gray-500 dark:text-gray-400">Base Experience</span>
-            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{pokemon.base_experience}</p>
-          </div>
-          <div className="space-y-1">
-            <span className="text-sm text-gray-500 dark:text-gray-400">Capture Rate</span>
-            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{species.capture_rate}</p>
-          </div>
         </div>
       </div>
 
       {/* Abilities */}
       <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Abilities</h3>
+        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+          <Star className="mr-2" size={20} />
+          Abilities
+        </h3>
         <div className="space-y-3">
           {pokemon.abilities.map((ability, index) => (
-            <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-white/50 dark:bg-gray-800/50 border border-white/30 dark:border-gray-700/30">
-              <span className="font-medium text-gray-900 dark:text-gray-100">{formatPokemonName(ability.ability.name)}</span>
+            <div 
+              key={index} 
+              className={`flex items-center justify-between p-4 rounded-lg border transition-all duration-200 ${
+                ability.is_hidden 
+                  ? 'bg-gradient-to-r from-purple-100 via-pink-50 to-purple-100 dark:from-purple-900/30 dark:via-pink-900/20 dark:to-purple-900/30 border-purple-300 dark:border-purple-600 shadow-lg hover:shadow-xl transform hover:scale-[1.02]' 
+                  : 'bg-white/50 dark:bg-gray-800/50 border-white/30 dark:border-gray-700/30 hover:bg-white/70 dark:hover:bg-gray-700/50'
+              }`}
+            >
+              <div className="flex items-center space-x-3">
+                <span className={`font-semibold ${ability.is_hidden ? 'text-purple-800 dark:text-purple-200' : 'text-gray-900 dark:text-gray-100'}`}>
+                  {formatPokemonName(ability.ability.name)}
+                </span>
+                {ability.is_hidden && (
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs text-purple-600 dark:text-purple-300 font-medium">Rare Ability</span>
+                  </div>
+                )}
+              </div>
               {ability.is_hidden && (
-                <span className="text-xs bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full font-medium">Hidden</span>
+                <div className="flex items-center space-x-2">
+                  <span className="text-xs bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 text-white px-4 py-2 rounded-full font-bold shadow-md animate-pulse">
+                    ✨ Hidden
+                  </span>
+                </div>
               )}
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Training */}
+      <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
+        <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900 dark:text-gray-100">
+          <Zap className="mr-2" size={20} />
+          Training
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-1">
+            <span className="text-sm text-gray-500 dark:text-gray-400">EV Yield</span>
+            <div className="space-y-1">
+              {pokemon.stats.filter(stat => stat.effort > 0).length > 0 ? (
+                pokemon.stats.filter(stat => stat.effort > 0).map((stat, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                      +{stat.effort} {formatPokemonName(stat.stat.name)}
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <span className="text-sm text-gray-700 dark:text-gray-300">No EV yield</span>
+              )}
+            </div>
+          </div>
+          <div className="space-y-1">
+            <span className="text-sm text-gray-500 dark:text-gray-400">Catch Rate</span>
+            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{species.capture_rate}</p>
+            <div className="space-y-1">
+              <div className="text-xs text-gray-600 dark:text-gray-400 space-y-1">
+                <div className="flex items-center justify-between">
+                  <span>🔴 Poké Ball:</span>
+                  <span className="font-medium">{((species.capture_rate / 255) * 100).toFixed(1)}%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>💙 Great Ball:</span>
+                  <span className="font-medium">{Math.min(((species.capture_rate / 255) * 100 * 1.5), 100).toFixed(1)}%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>💜 Ultra Ball:</span>
+                  <span className="font-medium">{Math.min(((species.capture_rate / 255) * 100 * 2), 100).toFixed(1)}%</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>🖤 Master Ball:</span>
+                  <span className="font-medium">100%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-1">
+            <span className="text-sm text-gray-500 dark:text-gray-400">Base Friendship</span>
+            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{species.base_happiness}</p>
+          </div>
+          <div className="space-y-1">
+            <span className="text-sm text-gray-500 dark:text-gray-400">Base Exp.</span>
+            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{pokemon.base_experience}</p>
+          </div>
+          <div className="space-y-1">
+            <span className="text-sm text-gray-500 dark:text-gray-400">Growth Rate</span>
+            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">
+              {GROWTH_RATES[species.growth_rate.name] || formatPokemonName(species.growth_rate.name)}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -237,14 +323,48 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
 
   const renderStatsTab = () => (
     <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-      <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Base Stats</h3>
-      <StatChart stats={pokemon.stats} />
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <Zap className="mr-2" size={20} />
+          Base Stats
+        </h3>
+        <div className="flex items-center space-x-2 bg-white/50 dark:bg-gray-800/50 rounded-lg p-1 border border-white/30 dark:border-gray-700/30">
+          <button
+            onClick={() => setStatChartVariant('horizontal')}
+            className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+              statChartVariant === 'horizontal'
+                ? 'bg-blue-500 text-white shadow-md'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+            }`}
+            title="Horizontal chart view"
+          >
+            <BarChart size={16} />
+            <span>Bars</span>
+          </button>
+          <button
+            onClick={() => setStatChartVariant('radial')}
+            className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+              statChartVariant === 'radial'
+                ? 'bg-blue-500 text-white shadow-md'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+            }`}
+            title="Radial chart view"
+          >
+            <Activity size={16} />
+            <span>Radar</span>
+          </button>
+        </div>
+      </div>
+      <StatChart stats={pokemon.stats} variant={statChartVariant} />
     </div>
   );
 
   const renderTypeDefensesTab = () => (
     <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-      <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Type Defenses</h3>
+      <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+        <Shield className="mr-2" size={20} />
+        Type Defenses
+      </h3>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {Object.entries(typeEffectiveness).map(([type, multiplier]) => {
           let bgColor = 'bg-gray-100 dark:bg-gray-700';
@@ -335,25 +455,6 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
           </div>
         </div>
       </div>
-
-      <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-        <h3 className="text-lg font-semibold mb-4 flex items-center text-gray-900 dark:text-gray-100">
-          <Zap className="mr-2" size={20} />
-          Training
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <span className="text-sm text-gray-500 dark:text-gray-400">Growth Rate</span>
-            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">
-              {GROWTH_RATES[species.growth_rate.name] || formatPokemonName(species.growth_rate.name)}
-            </p>
-          </div>
-          <div className="space-y-2">
-            <span className="text-sm text-gray-500 dark:text-gray-400">Base Experience</span>
-            <p className="font-semibold text-gray-900 dark:text-gray-100 text-lg">{pokemon.base_experience}</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 
@@ -403,7 +504,10 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
 
     return (
       <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Evolution Chart</h3>
+        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+          <Users className="mr-2" size={20} />
+          Evolution Chart
+        </h3>
         {evolutionChain ? (
           <div className="space-y-6">
             {renderEvolutionChain(evolutionChain.chain)}
@@ -446,7 +550,10 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
     return (
       <div className="space-y-6">
         <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-          <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Level Up Moves</h3>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+            <Zap className="mr-2" size={20} />
+            Level Up Moves
+          </h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -478,7 +585,10 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
 
         {tmMoves.length > 0 && (
           <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">TM Moves</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+              <Zap className="mr-2" size={20} />
+              TM Moves
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {tmMoves.slice(0, 15).map((move, index) => (
                 <div key={index} className="glass-subtle rounded-lg px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-100 border border-white/30 dark:border-gray-700/30 hover:scale-105 transition-transform duration-200">
@@ -491,7 +601,10 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
 
         {eggMoves.length > 0 && (
           <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Egg Moves</h3>
+            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+              <Baby className="mr-2" size={20} />
+              Egg Moves
+            </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {eggMoves.map((move, index) => (
                 <div key={index} className="glass-subtle rounded-lg px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-100 border border-white/30 dark:border-gray-700/30 hover:scale-105 transition-transform duration-200">
@@ -509,7 +622,7 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
     { id: 'overview', label: 'Overview', icon: Star },
     { id: 'stats', label: 'Base Stats', icon: Zap },
     { id: 'type-defenses', label: 'Type Defenses', icon: Shield },
-    { id: 'breeding', label: 'Training & Breeding', icon: Heart },
+    { id: 'breeding', label: 'Breeding', icon: Heart },
     { id: 'evolution', label: 'Evolution', icon: Users },
     { id: 'moves', label: 'Moves', icon: Zap },
   ];
@@ -615,7 +728,6 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
           {activeTab === 'moves' && renderMovesTab()}
         </div>
         
-        <Footer />
       </div>
       
       {/* Sprites Modal */}
