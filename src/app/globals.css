@@ -143,18 +143,18 @@ body {
 /* Dropdown z-index fixes */
 .dropdown-container {
   position: relative;
-  z-index: 9999;
+  z-index: 50; /* ensure dropdowns appear above content */
 }
 
 .dropdown-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 9998;
+  z-index: 40;
 }
 
 .dropdown-menu {
   position: absolute;
-  z-index: 9999;
+  z-index: 50;
 }
 
 /* Ensure dropdowns are not clipped by parent containers */
