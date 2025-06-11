@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Filter, Grid3X3, List } from 'lucide-react';
@@ -10,7 +10,6 @@ import Header from './Header';
 import PokemonCard from './PokemonCard';
 import TypeBadge from './TypeBadge';
 import GenerationFilter from './GenerationFilter';
-import Footer from './Footer';
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
@@ -21,27 +20,61 @@ const PokemonList = () => {
   const [selectedGeneration, setSelectedGeneration] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [hasMore, setHasMore] = useState(true);
+  const [generationOffset, setGenerationOffset] = useState(0);
   const router = useRouter();
+  const loadMoreRef = useRef<HTMLDivElement>(null);
 
   const POKEMON_PER_PAGE = 20;
 
-  const loadPokemon = async (loadMore = false) => {
+  const loadPokemon = async (loadMore = false, specificRange?: { start: number; end: number }) => {
     try {
       setLoading(true);
-      const offset = loadMore ? pokemonList.length : 0;
-      const response: PokemonListResponse = await pokemonApi.getPokemonList(offset, POKEMON_PER_PAGE);
       
-      // Fetch detailed data for each Pokemon
-      const pokemonPromises = response.results.map(p => pokemonApi.getPokemon(p.name));
-      const pokemonData = await Promise.all(pokemonPromises);
-      
-      if (loadMore) {
-        setPokemonList(prev => [...prev, ...pokemonData]);
+      if (specificRange) {
+        // Load paginated Pokemon for generation filtering
+        const currentOffset = loadMore ? generationOffset : 0;
+        const startId = specificRange.start + currentOffset;
+        const endId = Math.min(startId + POKEMON_PER_PAGE - 1, specificRange.end);
+        
+        if (startId > specificRange.end) {
+          setHasMore(false);
+          setLoading(false);
+          return;
+        }
+        
+        const pokemonPromises = [];
+        for (let i = startId; i <= endId; i++) {
+          pokemonPromises.push(pokemonApi.getPokemon(i.toString()));
+        }
+        
+        const pokemonData = await Promise.all(pokemonPromises);
+        
+        if (loadMore) {
+          setPokemonList(prev => [...prev, ...pokemonData]);
+          setGenerationOffset(prev => prev + POKEMON_PER_PAGE);
+        } else {
+          setPokemonList(pokemonData);
+          setGenerationOffset(POKEMON_PER_PAGE);
+        }
+        
+        setHasMore(endId < specificRange.end);
       } else {
-        setPokemonList(pokemonData);
+        // Regular pagination loading
+        const offset = loadMore ? pokemonList.length : 0;
+        const response: PokemonListResponse = await pokemonApi.getPokemonList(offset, POKEMON_PER_PAGE);
+        
+        // Fetch detailed data for each Pokemon
+        const pokemonPromises = response.results.map(p => pokemonApi.getPokemon(p.name));
+        const pokemonData = await Promise.all(pokemonPromises);
+        
+        if (loadMore) {
+          setPokemonList(prev => [...prev, ...pokemonData]);
+        } else {
+          setPokemonList(pokemonData);
+        }
+        
+        setHasMore(response.next !== null);
       }
-      
-      setHasMore(response.next !== null);
     } catch (error) {
       console.error('Error loading Pokemon:', error);
     } finally {
@@ -52,6 +85,8 @@ const PokemonList = () => {
   const filterPokemon = () => {
     let filtered = pokemonList;
 
+    // For generation filtering, we don't filter here since we load specific generation Pokemon
+    // Only apply search and type filters to the loaded Pokemon
     if (searchTerm) {
       filtered = filtered.filter(pokemon =>
         pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -65,14 +100,21 @@ const PokemonList = () => {
       );
     }
 
-    if (selectedGeneration) {
-      const [start, end] = selectedGeneration.split('-').map(Number);
-      filtered = filtered.filter(pokemon => 
-        pokemon.id >= start && pokemon.id <= end
-      );
-    }
-
     setFilteredPokemon(filtered);
+  };
+
+  const handleGenerationChange = async (generation: string) => {
+    setSelectedGeneration(generation);
+    setGenerationOffset(0);
+    
+    if (generation) {
+      const [start, end] = generation.split('-').map(Number);
+      // Load first page of this generation
+      await loadPokemon(false, { start, end });
+    } else {
+      // Load regular Pokemon list when "All Generations" is selected
+      await loadPokemon(false);
+    }
   };
 
   useEffect(() => {
@@ -81,7 +123,30 @@ const PokemonList = () => {
 
   useEffect(() => {
     filterPokemon();
-  }, [pokemonList, searchTerm, selectedType, selectedGeneration]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [pokemonList, searchTerm, selectedType]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Infinite scroll implementation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading && hasMore) {
+          loadMoreHandler();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = loadMoreRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [loading, hasMore, selectedGeneration]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handlePokemonClick = (pokemon: Pokemon) => {
     router.push(`/pokemon/${pokemon.id}`);
@@ -89,7 +154,12 @@ const PokemonList = () => {
 
   const loadMoreHandler = () => {
     if (!loading && hasMore) {
-      loadPokemon(true);
+      if (selectedGeneration) {
+        const [start, end] = selectedGeneration.split('-').map(Number);
+        loadPokemon(true, { start, end });
+      } else {
+        loadPokemon(true);
+      }
     }
   };
 
@@ -190,7 +260,7 @@ const PokemonList = () => {
               {/* Generation Filter */}
               <GenerationFilter 
                 selectedGeneration={selectedGeneration}
-                onGenerationChange={setSelectedGeneration}
+                onGenerationChange={handleGenerationChange}
               />
 
               {/* View Mode Toggle */}
@@ -246,7 +316,17 @@ const PokemonList = () => {
                 )}
               </div>
 
-              {/* Load More Button */}
+              {/* Infinite Scroll Trigger */}
+              <div ref={loadMoreRef} className="h-10 flex items-center justify-center">
+                {loading && pokemonList.length > 0 && (
+                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                    <div className="w-4 h-4 border-2 border-blue-500/20 border-t-blue-500 rounded-full animate-spin" />
+                    <span>Loading more Pokémon...</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Load More Button - Only for "All Generations" without filters */}
               {hasMore && !searchTerm && !selectedType && !selectedGeneration && (
                 <div className="text-center mt-12">
                   <button
@@ -289,8 +369,6 @@ const PokemonList = () => {
             </>
           )}
         </div>
-        
-        <Footer />
       </div>
     </div>
   );
