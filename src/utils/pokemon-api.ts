@@ -15,41 +15,85 @@ export const api = axios.create({
   timeout: 10000, // 10 second timeout
 });
 
+// Simple in-memory cache with localStorage persistence
+const cache = new Map<string, { data: unknown; timestamp: number }>();
+const CACHE_TTL = 1000 * 60 * 60; // 1 hour
+
+function getCache<T>(key: string): T | null {
+  const now = Date.now();
+  const memory = cache.get(key);
+  if (memory && now - memory.timestamp < CACHE_TTL) return memory.data as T;
+
+  if (typeof localStorage !== 'undefined') {
+    try {
+      const item = localStorage.getItem(key);
+      if (item) {
+        const parsed = JSON.parse(item) as { data: T; timestamp: number };
+        if (now - parsed.timestamp < CACHE_TTL) {
+          cache.set(key, parsed);
+          return parsed.data;
+        }
+      }
+    } catch {
+      /* ignore corrupt cache */
+    }
+  }
+  return null;
+}
+
+function setCache<T>(key: string, data: T) {
+  const value = { data, timestamp: Date.now() };
+  cache.set(key, value);
+  if (typeof localStorage !== 'undefined') {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch {
+      /* ignore storage errors */
+    }
+  }
+}
+
+async function fetchWithCache<T>(path: string): Promise<T> {
+  const key = `poke:${path}`;
+  const cached = getCache<T>(key);
+  if (cached) return cached;
+
+  const response = await api.get<T>(path);
+  setCache(key, response.data);
+  return response.data;
+}
+
 export const pokemonApi = {
   // Get list of Pokemon
   getPokemonList: async (offset = 0, limit = 20): Promise<PokemonListResponse> => {
-    const response = await api.get(`/pokemon?offset=${offset}&limit=${limit}`);
-    return response.data;
+    return fetchWithCache<PokemonListResponse>(
+      `/pokemon?offset=${offset}&limit=${limit}`
+    );
   },
 
   // Get Pokemon by ID or name
   getPokemon: async (idOrName: string | number): Promise<Pokemon> => {
-    const response = await api.get(`/pokemon/${idOrName}`);
-    return response.data;
+    return fetchWithCache<Pokemon>(`/pokemon/${idOrName}`);
   },
 
   // Get Pokemon species data
   getPokemonSpecies: async (idOrName: string | number): Promise<PokemonSpecies> => {
-    const response = await api.get(`/pokemon-species/${idOrName}`);
-    return response.data;
+    return fetchWithCache<PokemonSpecies>(`/pokemon-species/${idOrName}`);
   },
 
   // Get evolution chain
   getEvolutionChain: async (id: number): Promise<EvolutionChain> => {
-    const response = await api.get(`/evolution-chain/${id}`);
-    return response.data;
+    return fetchWithCache<EvolutionChain>(`/evolution-chain/${id}`);
   },
 
   // Get type effectiveness
   getTypeEffectiveness: async (type: string): Promise<TypeEffectiveness> => {
-    const response = await api.get(`/type/${type}`);
-    return response.data;
+    return fetchWithCache<TypeEffectiveness>(`/type/${type}`);
   },
 
   // Get move data
   getMove: async (idOrName: string | number): Promise<Move> => {
-    const response = await api.get(`/move/${idOrName}`);
-    return response.data;
+    return fetchWithCache<Move>(`/move/${idOrName}`);
   },
 
   // Search Pokemon
