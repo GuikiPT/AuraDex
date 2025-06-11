@@ -1,26 +1,173 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom animations */
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-from-top-2 {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+}
+
+.animate-in {
+  animation: animate-in 0.5s ease-out;
+}
+
+.slide-in-from-top-2 {
+  animation: slide-in-from-top-2 0.2s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+:root {
+  /* Light theme */
+  --background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --foreground: #1e293b;
+  --card-background: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #64748b;
+  --muted: #f1f5f9;
+  --accent: #8b5cf6;
+  --destructive: #ef4444;
+}
+
+[data-theme="dark"] {
+  /* Dark theme */
+  --background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  --foreground: #f8fafc;
+  --card-background: rgba(15, 23, 42, 0.8);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --primary: #60a5fa;
+  --primary-foreground: #1e293b;
+  --secondary: #94a3b8;
+  --muted: #1e293b;
+  --accent: #a78bfa;
+  --destructive: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: var(--card-background);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Loading shimmer effect */
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Dropdown z-index fixes */
+.dropdown-container {
+  position: relative;
+  z-index: 9999;
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 9999;
+}
+
+/* Ensure dropdowns are not clipped by parent containers */
+.filters-container {
+  overflow: visible;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

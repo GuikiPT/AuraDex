@@ -1,0 +1,9 @@
+{
+  "typescript.preferences.allowImportsFromNodeModules": true,
+  "typescript.suggest.autoImports": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "debug.terminal.clearBeforeReusing": true,
+  "debug.javascript.codelens.npmScripts": "top"
+}
