@@ -33,6 +33,12 @@
   50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
 }
 
+@keyframes gradient-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .animate-in {
   animation: animate-in 0.5s ease-out;
 }
@@ -49,31 +55,36 @@
   animation: glow-pulse 2s ease-in-out infinite;
 }
 
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-bg 15s ease infinite;
+}
+
 :root {
   /* Light theme */
-  --background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --background: radial-gradient(circle at top left, #f0f9ff, #e0f2fe 40%, #fff1f2 100%);
   --foreground: #1e293b;
-  --card-background: rgba(255, 255, 255, 0.8);
+  --card-background: rgba(255, 255, 255, 0.85);
   --card-border: rgba(255, 255, 255, 0.2);
-  --primary: #3b82f6;
+  --primary: #6366f1;
   --primary-foreground: #ffffff;
   --secondary: #64748b;
   --muted: #f1f5f9;
-  --accent: #8b5cf6;
+  --accent: #ec4899;
   --destructive: #ef4444;
 }
 
 [data-theme="dark"] {
   /* Dark theme */
-  --background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  --background: radial-gradient(circle at top left, #0f172a, #1e293b 50%, #312e81 100%);
   --foreground: #f8fafc;
-  --card-background: rgba(15, 23, 42, 0.8);
+  --card-background: rgba(15, 23, 42, 0.85);
   --card-border: rgba(255, 255, 255, 0.1);
-  --primary: #60a5fa;
+  --primary: #8b5cf6;
   --primary-foreground: #1e293b;
   --secondary: #94a3b8;
   --muted: #1e293b;
-  --accent: #a78bfa;
+  --accent: #f472b6;
   --destructive: #f87171;
 }
 
