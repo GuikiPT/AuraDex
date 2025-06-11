@@ -2,21 +2,29 @@
 
 import { TYPE_COLORS } from '@/constants/pokemon';
 import { formatPokemonName } from '@/utils/pokemon-api';
+import TypeIcon from './TypeIcon';
 
 interface TypeBadgeProps {
   type: string;
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   variant?: 'default' | 'outline' | 'glass';
+  showIcon?: boolean;
 }
 
-const TypeBadge = ({ type, size = 'md', className = '', variant = 'default' }: TypeBadgeProps) => {
+const TypeBadge = ({ type, size = 'md', className = '', variant = 'default', showIcon = true }: TypeBadgeProps) => {
   const color = TYPE_COLORS[type] || '#6B7280';
   
   const sizeClasses = {
     sm: 'px-2 py-1 text-xs',
     md: 'px-3 py-1.5 text-sm',
     lg: 'px-4 py-2 text-base',
+  };
+
+  const iconSizes = {
+    sm: 12,
+    md: 16,
+    lg: 20,
   };
 
   const variantClasses = {
@@ -48,9 +56,10 @@ const TypeBadge = ({ type, size = 'md', className = '', variant = 'default' }: T
 
   return (
     <span
-      className={`inline-flex items-center rounded-xl transition-all duration-200 hover:scale-105 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-xl transition-all duration-200 hover:scale-105 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
       style={getStyles()}
     >
+      {showIcon && <TypeIcon type={type} size={iconSizes[size]} />}
       {formatPokemonName(type)}
     </span>
   );

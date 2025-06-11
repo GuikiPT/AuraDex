@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Star, Zap, Shield, Swords } from 'lucide-react';
+import { Zap, Shield, Swords, Star } from 'lucide-react';
 import { Pokemon } from '@/types/pokemon';
 import { formatPokemonName } from '@/utils/pokemon-api';
 import { TYPE_COLORS } from '@/constants/pokemon';
-import TypeBadge from './TypeBadge';
+import TypeIcon from './TypeIcon';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
@@ -30,6 +30,8 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
     hp: pokemon.stats.find(s => s.stat.name === 'hp')?.base_stat || 0,
     attack: pokemon.stats.find(s => s.stat.name === 'attack')?.base_stat || 0,
     defense: pokemon.stats.find(s => s.stat.name === 'defense')?.base_stat || 0,
+    specialAttack: pokemon.stats.find(s => s.stat.name === 'special-attack')?.base_stat || 0,
+    specialDefense: pokemon.stats.find(s => s.stat.name === 'special-defense')?.base_stat || 0,
     speed: pokemon.stats.find(s => s.stat.name === 'speed')?.base_stat || 0,
   };
 
@@ -48,20 +50,11 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
       
       {/* Card */}
       <div className="relative glass rounded-2xl overflow-hidden border border-white/20 dark:border-gray-700/30 shadow-xl group-hover:shadow-2xl transition-all duration-300">
-        {/* Header with ID and favorite */}
-        <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+        {/* Header with ID */}
+        <div className="absolute top-4 left-4 z-10">
           <span className="px-2 py-1 rounded-lg bg-black/20 backdrop-blur-sm text-white text-xs font-mono">
             #{pokemon.id.toString().padStart(3, '0')}
           </span>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              // TODO: Add to favorites functionality
-            }}
-            className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors duration-200"
-          >
-            <Star className="w-4 h-4 text-white" />
-          </button>
         </div>
 
         {/* Pokemon Image */}
@@ -107,12 +100,12 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
           {/* Types */}
           <div className="flex gap-2 flex-wrap">
             {pokemon.types.map((type) => (
-              <TypeBadge key={type.type.name} type={type.type.name} />
+              <TypeIcon key={type.type.name} type={type.type.name} size={96} />
             ))}
           </div>
 
           {/* Stats Preview */}
-          <div className="grid grid-cols-2 gap-2 text-xs">
+          <div className="grid grid-cols-3 gap-2 text-xs">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center">
                 <Zap className="w-3 h-3 text-red-500" />
@@ -135,6 +128,22 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
               </div>
               <span className="text-gray-600 dark:text-gray-400">DEF</span>
               <span className="font-semibold text-gray-900 dark:text-gray-100">{stats.defense}</span>
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center">
+                <Star className="w-3 h-3 text-purple-500" />
+              </div>
+              <span className="text-gray-600 dark:text-gray-400">SP.A</span>
+              <span className="font-semibold text-gray-900 dark:text-gray-100">{stats.specialAttack}</span>
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                <Shield className="w-3 h-3 text-indigo-500" />
+              </div>
+              <span className="text-gray-600 dark:text-gray-400">SP.D</span>
+              <span className="font-semibold text-gray-900 dark:text-gray-100">{stats.specialDefense}</span>
             </div>
             
             <div className="flex items-center gap-2">

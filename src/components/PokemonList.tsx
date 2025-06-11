@@ -50,7 +50,11 @@ const PokemonList = () => {
         const pokemonData = await Promise.all(pokemonPromises);
         
         if (loadMore) {
-          setPokemonList(prev => [...prev, ...pokemonData]);
+          setPokemonList(prev => {
+            const existingIds = new Set(prev.map(p => p.id));
+            const newPokemon = pokemonData.filter(p => !existingIds.has(p.id));
+            return [...prev, ...newPokemon];
+          });
           setGenerationOffset(prev => prev + POKEMON_PER_PAGE);
         } else {
           setPokemonList(pokemonData);
@@ -68,7 +72,11 @@ const PokemonList = () => {
         const pokemonData = await Promise.all(pokemonPromises);
         
         if (loadMore) {
-          setPokemonList(prev => [...prev, ...pokemonData]);
+          setPokemonList(prev => {
+            const existingIds = new Set(prev.map(p => p.id));
+            const newPokemon = pokemonData.filter(p => !existingIds.has(p.id));
+            return [...prev, ...newPokemon];
+          });
         } else {
           setPokemonList(pokemonData);
         }
@@ -100,7 +108,12 @@ const PokemonList = () => {
       );
     }
 
-    setFilteredPokemon(filtered);
+    // Remove any potential duplicates by ID to prevent React key conflicts
+    const uniqueFiltered = filtered.filter((pokemon, index, array) => 
+      array.findIndex(p => p.id === pokemon.id) === index
+    );
+
+    setFilteredPokemon(uniqueFiltered);
   };
 
   const handleGenerationChange = async (generation: string) => {
@@ -120,6 +133,18 @@ const PokemonList = () => {
   useEffect(() => {
     loadPokemon();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Ensure pokemonList is always deduplicated
+  useEffect(() => {
+    if (pokemonList.length > 0) {
+      const uniquePokemon = pokemonList.filter((pokemon, index, array) => 
+        array.findIndex(p => p.id === pokemon.id) === index
+      );
+      if (uniquePokemon.length !== pokemonList.length) {
+        setPokemonList(uniquePokemon);
+      }
+    }
+  }, [pokemonList]);
 
   useEffect(() => {
     filterPokemon();
@@ -207,7 +232,7 @@ const PokemonList = () => {
             ))}
           </div>
           
-          <div className="grid grid-cols-3 gap-4 text-sm">
+          <div className="grid grid-cols-5 gap-4 text-sm">
             <div className="text-center">
               <span className="block text-gray-500 dark:text-gray-400 text-xs">Height</span>
               <span className="font-semibold text-gray-900 dark:text-gray-100">{(pokemon.height / 10).toFixed(1)} m</span>
@@ -215,6 +240,18 @@ const PokemonList = () => {
             <div className="text-center">
               <span className="block text-gray-500 dark:text-gray-400 text-xs">Weight</span>
               <span className="font-semibold text-gray-900 dark:text-gray-100">{(pokemon.weight / 10).toFixed(1)} kg</span>
+            </div>
+            <div className="text-center">
+              <span className="block text-gray-500 dark:text-gray-400 text-xs">Sp. Attack</span>
+              <span className="font-semibold text-gray-900 dark:text-gray-100">
+                {pokemon.stats.find(stat => stat.stat.name === 'special-attack')?.base_stat || 0}
+              </span>
+            </div>
+            <div className="text-center">
+              <span className="block text-gray-500 dark:text-gray-400 text-xs">Sp. Defense</span>
+              <span className="font-semibold text-gray-900 dark:text-gray-100">
+                {pokemon.stats.find(stat => stat.stat.name === 'special-defense')?.base_stat || 0}
+              </span>
             </div>
             <div className="text-center">
               <span className="block text-gray-500 dark:text-gray-400 text-xs">Experience</span>

@@ -3,14 +3,15 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ChevronLeft, Heart, Star, Zap, Shield, Users, Baby, ArrowRight } from 'lucide-react';
+import { ChevronLeft, Heart, Star, Zap, Shield, Users, Baby, ArrowRight, ChevronRight } from 'lucide-react';
 import { Pokemon, PokemonSpecies, EvolutionChain, TypeEffectiveness, EvolutionChainLink, EvolutionDetail } from '@/types/pokemon';
 import { pokemonApi, calculateTypeEffectiveness, formatPokemonName, getPokemonId } from '@/utils/pokemon-api';
 import { TYPE_COLORS, EGG_GROUP_NAMES, GROWTH_RATES } from '@/constants/pokemon';
-import TypeBadge from './TypeBadge';
+import TypeIcon from './TypeIcon';
 import StatChart from './StatChart';
 import LoadingSpinner from './LoadingSpinner';
 import Footer from './Footer';
+import SpritesModal from './SpritesModal';
 
 interface PokemonDetailProps {
   pokemonId: string;
@@ -23,6 +24,8 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
   const [typeEffectiveness, setTypeEffectiveness] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
+  const [showSpritesModal, setShowSpritesModal] = useState(false);
+  const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -37,6 +40,9 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
         // Fetch species data
         const speciesData = await pokemonApi.getPokemonSpecies(pokemonId);
         setSpecies(speciesData);
+        
+        // Reset description index when switching Pokemon
+        setCurrentDescriptionIndex(0);
         
         // Fetch evolution chain
         const evolutionId = getPokemonId(speciesData.evolution_chain.url);
@@ -104,21 +110,89 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
     );
   }
 
-  const englishDescription = species.flavor_text_entries.find(
+  const englishDescriptions = species?.flavor_text_entries.filter(
     entry => entry.language.name === 'en'
-  )?.flavor_text.replace(/\f/g, ' ') || '';
+  ) || [];
 
-  const englishGenus = species.genera.find(
+  const englishGenus = species?.genera.find(
     genus => genus.language.name === 'en'
   )?.genus || '';
+
+  const nextDescription = () => {
+    setCurrentDescriptionIndex((prev) => 
+      prev === englishDescriptions.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevDescription = () => {
+    setCurrentDescriptionIndex((prev) => 
+      prev === 0 ? englishDescriptions.length - 1 : prev - 1
+    );
+  };
 
   const renderOverviewTab = () => (
     <div className="space-y-6">
       {/* Description */}
       <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-        <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">Description</h3>
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{englishDescription}</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 italic">The {englishGenus}</p>
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Description</h3>
+          {englishDescriptions.length > 1 && (
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={prevDescription}
+                className="p-1 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-700/70 transition-colors"
+                title="Previous description"
+              >
+                <ChevronLeft size={16} className="text-gray-600 dark:text-gray-400" />
+              </button>
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                {currentDescriptionIndex + 1} of {englishDescriptions.length}
+              </span>
+              <button
+                onClick={nextDescription}
+                className="p-1 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white/70 dark:hover:bg-gray-700/70 transition-colors"
+                title="Next description"
+              >
+                <ChevronRight size={16} className="text-gray-600 dark:text-gray-400" />
+              </button>
+            </div>
+          )}
+        </div>
+        
+        <div className="relative">
+          {englishDescriptions.length > 0 ? (
+            <div className="transition-all duration-300 ease-in-out">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {englishDescriptions[currentDescriptionIndex]?.flavor_text.replace(/\f/g, ' ')}
+              </p>
+              {englishDescriptions.length > 1 && (
+                <div className="mt-3 flex items-center justify-between">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                    From: {englishDescriptions[currentDescriptionIndex]?.version.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                  </p>
+                  <div className="flex space-x-1">
+                    {englishDescriptions.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentDescriptionIndex(index)}
+                        className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                          index === currentDescriptionIndex
+                            ? 'bg-blue-500 dark:bg-blue-400'
+                            : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                        }`}
+                        title={`View description from ${englishDescriptions[index]?.version.name}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <p className="text-gray-500 dark:text-gray-400 italic">No description available</p>
+          )}
+        </div>
+        
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-4 italic">The {englishGenus}</p>
       </div>
 
       {/* Pokedex Data */}
@@ -475,20 +549,32 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
                 <p className="text-xl opacity-90 drop-shadow-md">#{pokemon.id.toString().padStart(3, '0')}</p>
                 <div className="flex space-x-2 mt-3">
                   {pokemon.types.map((type, index) => (
-                    <TypeBadge key={index} type={type.type.name} variant="glass" />
+                    <TypeIcon key={index} type={type.type.name} size={96} />
                   ))}
                 </div>
               </div>
               
               <div className="relative">
                 <div className="absolute -inset-4 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
-                <Image
-                  src={pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default}
-                  alt={pokemon.name}
-                  width={200}
-                  height={200}
-                  className="drop-shadow-2xl relative z-10 hover:scale-105 transition-transform duration-300"
-                />
+                <button
+                  onClick={() => setShowSpritesModal(true)}
+                  className="relative z-10 group"
+                  title="Click to view all sprites"
+                >
+                  <Image
+                    src={pokemon.sprites.other['official-artwork']?.front_default || pokemon.sprites.front_default || '/placeholder-pokemon.svg'}
+                    alt={pokemon.name}
+                    width={200}
+                    height={200}
+                    className="drop-shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  />
+                  {/* Overlay with hint */}
+                  <div className="absolute inset-0 bg-black/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/90 dark:bg-gray-800/90 px-3 py-1 rounded-full text-sm font-medium text-gray-900 dark:text-gray-100">
+                      View All Sprites
+                    </div>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
@@ -531,6 +617,13 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
         
         <Footer />
       </div>
+      
+      {/* Sprites Modal */}
+      <SpritesModal
+        pokemon={pokemon}
+        isOpen={showSpritesModal}
+        onClose={() => setShowSpritesModal(false)}
+      />
     </div>
   );
 };
