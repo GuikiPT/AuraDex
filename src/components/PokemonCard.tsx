@@ -57,9 +57,9 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
           </span>
         </div>
 
-        {/* Pokemon Image */}
+        {/* Pokemon Images */}
         <div 
-          className="relative h-48 p-6 flex items-center justify-center overflow-hidden"
+          className="relative h-48 p-4 flex items-center justify-center overflow-hidden"
           style={{
             background: `linear-gradient(135deg, ${typeColor}20, ${typeColor}10, transparent)`
           }}
@@ -70,19 +70,43 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
             </div>
           )}
           
-          <div className="relative w-32 h-32 group-hover:animate-float">
-            <Image
-              src={imageError ? '/placeholder-pokemon.svg' : (pokemon.sprites.other?.['official-artwork']?.front_default || pokemon.sprites.front_default || '/placeholder-pokemon.svg')}
-              alt={pokemon.name}
-              fill
-              sizes="128px"
-              priority={priority}
-              className={`object-contain transition-all duration-500 drop-shadow-lg ${
-                imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}
-              onLoad={() => setImageLoaded(true)}
-              onError={() => setImageError(true)}
-            />
+          {/* Normal and Shiny Images Side by Side */}
+          <div className="flex space-x-4 items-center">
+            {/* Normal Version */}
+            <div className="relative w-24 h-24 group-hover:animate-float">
+              <Image
+                src={imageError ? '/placeholder-pokemon.svg' : (pokemon.sprites.other?.['official-artwork']?.front_default || pokemon.sprites.front_default || '/placeholder-pokemon.svg')}
+                alt={`${pokemon.name} normal`}
+                fill
+                sizes="96px"
+                priority={priority}
+                className={`object-contain transition-all duration-500 drop-shadow-lg ${
+                  imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
+                onLoad={() => setImageLoaded(true)}
+                onError={() => setImageError(true)}
+              />
+            </div>
+
+            {/* Shiny Version */}
+            <div className="relative w-24 h-24 group-hover:animate-float" style={{ animationDelay: '0.1s' }}>
+              <Image
+                src={imageError ? '/placeholder-pokemon.svg' : (pokemon.sprites.other?.['official-artwork']?.front_shiny || pokemon.sprites.front_shiny || '/placeholder-pokemon.svg')}
+                alt={`${pokemon.name} shiny`}
+                fill
+                sizes="96px"
+                priority={priority}
+                className={`object-contain transition-all duration-500 drop-shadow-lg ${
+                  imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
+                onLoad={() => setImageLoaded(true)}
+                onError={() => setImageError(true)}
+              />
+              {/* Shiny sparkle effect */}
+              <div className="absolute top-1 right-1 text-yellow-300 animate-pulse text-sm">
+                ✨
+              </div>
+            </div>
           </div>
 
           {/* Decorative elements */}

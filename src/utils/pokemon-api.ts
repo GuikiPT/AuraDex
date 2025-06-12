@@ -124,6 +124,11 @@ export const getPokemonId = (url: string): number => {
   return matches ? parseInt(matches[1]) : 0;
 };
 
+export const getPokemonNameFromUrl = (url: string): string => {
+  const matches = url.match(/\/pokemon\/([^\/]+)\/$/);
+  return matches ? matches[1] : '';
+};
+
 export const formatPokemonName = (name: string): string => {
   return name.charAt(0).toUpperCase() + name.slice(1).replace('-', ' ');
 };

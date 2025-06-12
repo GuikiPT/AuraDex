@@ -102,6 +102,7 @@ export interface PokemonSpecies {
   evolution_chain: {
     url: string;
   };
+  varieties: PokemonVariety[];
   egg_groups: EggGroup[];
   gender_rate: number;
   hatch_counter: number;
@@ -115,6 +116,14 @@ export interface PokemonSpecies {
     name: string;
     url: string;
   } | null;
+}
+
+export interface PokemonVariety {
+  is_default: boolean;
+  pokemon: {
+    name: string;
+    url: string;
+  };
 }
 
 export interface FlavorTextEntry {

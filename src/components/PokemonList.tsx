@@ -201,18 +201,45 @@ const PokemonList = () => {
     >
       <div className="flex items-center gap-6">
         <div className="flex-shrink-0 relative">
-          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center overflow-hidden">
-            <Image
-              src={pokemon.sprites.other?.['official-artwork']?.front_default || pokemon.sprites.front_default || '/placeholder-pokemon.svg'}
-              alt={pokemon.name}
-              width={60}
-              height={60}
-              className="object-contain group-hover:scale-110 transition-transform duration-300"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = '/placeholder-pokemon.svg';
-              }}
-            />
+          {/* Container for both normal and shiny images */}
+          <div className="flex space-x-2">
+            {/* Normal Version */}
+            <div className="relative">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={pokemon.sprites.other?.['official-artwork']?.front_default || pokemon.sprites.front_default || '/placeholder-pokemon.svg'}
+                  alt={`${pokemon.name} normal`}
+                  width={40}
+                  height={40}
+                  className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/placeholder-pokemon.svg';
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Shiny Version */}
+            <div className="relative">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/50 dark:to-orange-900/50 flex items-center justify-center overflow-hidden border border-yellow-200 dark:border-yellow-700/50">
+                <Image
+                  src={pokemon.sprites.other?.['official-artwork']?.front_shiny || pokemon.sprites.front_shiny || '/placeholder-pokemon.svg'}
+                  alt={`${pokemon.name} shiny`}
+                  width={40}
+                  height={40}
+                  className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/placeholder-pokemon.svg';
+                  }}
+                />
+                {/* Shiny sparkle */}
+                <div className="absolute top-0 right-0 text-yellow-400 text-xs animate-pulse">
+                  ✨
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         

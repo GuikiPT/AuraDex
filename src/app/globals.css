@@ -182,3 +182,36 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Tab navigation improvements */
+.tab-navigation {
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.tab-navigation button {
+  scroll-snap-align: start;
+}
+
+/* Mobile scrollbar for tabs */
+@media (max-width: 768px) {
+  .tab-navigation {
+    -ms-overflow-style: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(59, 130, 246, 0.5) transparent;
+  }
+  
+  .tab-navigation::-webkit-scrollbar {
+    display: block;
+    height: 4px;
+  }
+  
+  .tab-navigation::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-navigation::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.5);
+    border-radius: 2px;
+  }
+}

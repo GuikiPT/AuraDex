@@ -1,16 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ChevronLeft, Heart, Star, Zap, Shield, Users, Baby, ArrowRight, ChevronRight, Ruler, Book, BarChart, Activity } from 'lucide-react';
-import { Pokemon, PokemonSpecies, EvolutionChain, TypeEffectiveness, EvolutionChainLink, EvolutionDetail } from '@/types/pokemon';
-import { pokemonApi, calculateTypeEffectiveness, formatPokemonName, getPokemonId } from '@/utils/pokemon-api';
-import { TYPE_COLORS, EGG_GROUP_NAMES, GROWTH_RATES } from '@/constants/pokemon';
+import { ChevronLeft, Heart, Star, Zap, Shield, Users, Baby, ArrowRight, ChevronRight, Ruler, Book, BarChart, Activity, Gamepad2, Filter } from 'lucide-react';
+import { Pokemon, PokemonSpecies, EvolutionChain, TypeEffectiveness, EvolutionChainLink, EvolutionDetail, Move } from '@/types/pokemon';
+import { pokemonApi, calculateTypeEffectiveness, formatPokemonName, getPokemonId, getPokemonNameFromUrl } from '@/utils/pokemon-api';
+import { TYPE_COLORS, EGG_GROUP_NAMES, GROWTH_RATES, VERSION_GROUPS, MOVE_CATEGORIES } from '@/constants/pokemon';
 import TypeIcon from './TypeIcon';
 import StatChart from './StatChart';
 import LoadingSpinner from './LoadingSpinner';
 import SpritesModal from './SpritesModal';
+import MoveDetailModal from './MoveDetailModal';
+import MegaEvolutionModal from './MegaEvolutionModal';
 
 interface PokemonDetailProps {
   pokemonId: string;
@@ -20,12 +22,20 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [species, setSpecies] = useState<PokemonSpecies | null>(null);
   const [evolutionChain, setEvolutionChain] = useState<EvolutionChain | null>(null);
+  const [megaEvolutions, setMegaEvolutions] = useState<Pokemon[]>([]);
+  const [megaEvolutionsLoading, setMegaEvolutionsLoading] = useState(false);
   const [typeEffectiveness, setTypeEffectiveness] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
   const [showSpritesModal, setShowSpritesModal] = useState(false);
   const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
   const [statChartVariant, setStatChartVariant] = useState<'horizontal' | 'radial'>('horizontal');
+  const [selectedVersionGroup, setSelectedVersionGroup] = useState<string>('');
+  const [moveDetails, setMoveDetails] = useState<Record<string, Move | { loading: boolean }>>({});
+  const [selectedMove, setSelectedMove] = useState<Move | null>(null);
+  const [showMoveModal, setShowMoveModal] = useState(false);
+  const [selectedMegaEvolution, setSelectedMegaEvolution] = useState<Pokemon | null>(null);
+  const [showMegaModal, setShowMegaModal] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -49,6 +59,60 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
         const evolutionData = await pokemonApi.getEvolutionChain(evolutionId);
         setEvolutionChain(evolutionData);
         
+        // Fetch mega evolutions and other varieties from the entire evolution line
+        setMegaEvolutionsLoading(true);
+        const megaEvolutionData: Pokemon[] = [];
+        console.log('Fetching mega evolutions for evolution line...');
+        
+        // Helper function to get all Pokemon in evolution chain
+        const getAllPokemonInChain = (chain: EvolutionChainLink): string[] => {
+          const pokemon: string[] = [chain.species.name];
+          for (const evolution of chain.evolves_to) {
+            pokemon.push(...getAllPokemonInChain(evolution));
+          }
+          return pokemon;
+        };
+        
+        // Get all Pokemon names in the evolution chain
+        const evolutionChainPokemon = getAllPokemonInChain(evolutionData.chain);
+        console.log('Pokemon in evolution chain:', evolutionChainPokemon);
+        
+        // Check for mega evolutions in each Pokemon's species data
+        for (const pokemonName of evolutionChainPokemon) {
+          try {
+            const chainSpeciesData = await pokemonApi.getPokemonSpecies(pokemonName);
+            console.log(`Checking varieties for ${pokemonName}:`, chainSpeciesData.varieties);
+            
+            for (const variety of chainSpeciesData.varieties) {
+              if (!variety.is_default) {
+                const name = variety.pokemon.name;
+                console.log(`Checking variety: ${name}`);
+                // Include mega evolutions, gigantamax forms, and other special forms
+                if (name.includes('mega') || name.includes('gmax') || name.includes('primal') || 
+                    name.includes('ultra') || name.includes('shadow') || name.includes('purified')) {
+                  try {
+                    console.log(`Fetching variety: ${name}`);
+                    const varietyName = getPokemonNameFromUrl(variety.pokemon.url);
+                    const varietyPokemon = await pokemonApi.getPokemon(varietyName);
+                    megaEvolutionData.push(varietyPokemon);
+                    console.log(`Successfully fetched: ${varietyPokemon.name}`);
+                  } catch (error) {
+                    console.error(`Failed to fetch variety ${variety.pokemon.name}:`, error);
+                  }
+                } else {
+                  console.log(`Skipping variety (no match): ${name}`);
+                }
+              }
+            }
+          } catch (error) {
+            console.error(`Failed to fetch species data for ${pokemonName}:`, error);
+          }
+        }
+        
+        console.log('Final mega evolutions found:', megaEvolutionData);
+        setMegaEvolutions(megaEvolutionData);
+        setMegaEvolutionsLoading(false);
+        
         // Fetch type effectiveness data
         const typeData: Record<string, TypeEffectiveness> = {};
         for (const type of pokemonData.types) {
@@ -70,6 +134,24 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
 
     fetchPokemonData();
   }, [pokemonId]);
+
+  // Load move details for the first few moves when moves tab is active
+  useEffect(() => {
+    if (activeTab === 'moves' && pokemon && Object.keys(moveDetails).length === 0) {
+      const loadInitialMoveDetails = async () => {
+        const movesToLoad = pokemon.moves.slice(0, 5); // Load first 5 moves
+        for (const moveData of movesToLoad) {
+          try {
+            const moveDetail = await pokemonApi.getMove(moveData.move.name);
+            setMoveDetails(prev => ({ ...prev, [moveData.move.name]: moveDetail }));
+          } catch (error) {
+            console.error(`Failed to load move ${moveData.move.name}:`, error);
+          }
+        }
+      };
+      loadInitialMoveDetails();
+    }
+  }, [activeTab, pokemon, moveDetails]);
 
   if (loading) {
     return (
@@ -394,9 +476,11 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
           }
           
           return (
-            <div key={type} className={`${bgColor} ${textColor} p-3 rounded-lg text-center text-sm border ${borderColor} transition-transform hover:scale-105`}>
-              <div className="font-medium">{formatPokemonName(type)}</div>
-              <div className="text-xs opacity-90 mt-1">{multiplier}×</div>
+            <div key={type} className={`${bgColor} ${textColor} p-4 rounded-lg text-center text-sm border ${borderColor} transition-transform hover:scale-105`} title={`${formatPokemonName(type)} - ${multiplier}× damage`}>
+              <div className="flex flex-col items-center justify-center space-y-2">
+                <TypeIcon type={type} size={96} />
+                <div className="text-xs font-semibold opacity-90">{multiplier}×</div>
+              </div>
             </div>
           );
         })}
@@ -465,7 +549,11 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
       return (
         <div key={chain.species.name} className={`${level > 0 ? 'ml-8' : ''}`}>
           <div className="flex items-center space-x-6 mb-6">
-            <div className="text-center p-4 glass rounded-xl border border-white/20 dark:border-gray-700/30 hover:scale-105 transition-transform duration-200">
+            <button
+              onClick={() => router.push(`/pokemon/${pokemonId}`)}
+              className="text-center p-4 glass rounded-xl border border-white/20 dark:border-gray-700/30 hover:scale-105 transition-transform duration-200 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30"
+              title={`View ${formatPokemonName(chain.species.name)} details`}
+            >
               <Image
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
                 alt={chain.species.name}
@@ -475,7 +563,7 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
               />
               <p className="font-semibold mt-2 text-gray-900 dark:text-gray-100">{formatPokemonName(chain.species.name)}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">#{pokemonId.toString().padStart(3, '0')}</p>
-            </div>
+            </button>
             
             {chain.evolution_details.length > 0 && (
               <div className="flex-1">
@@ -502,6 +590,130 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
       );
     };
 
+    const renderMegaEvolutions = () => {
+      // Show loading or content regardless for debugging
+      if (megaEvolutionsLoading) {
+        return (
+          <div className="mt-8 pt-6 border-t border-white/20 dark:border-gray-700/30">
+            <div className="mb-4">
+              <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+                <Star className="mr-2 text-yellow-500" size={18} />
+                Alternative Forms (Loading...)
+              </h4>
+            </div>
+            <div className="flex justify-center py-8">
+              <LoadingSpinner />
+            </div>
+          </div>
+        );
+      }
+      
+      // Always show the section for debugging, even if no mega evolutions
+      return (
+        <div className="mt-8 pt-6 border-t border-white/20 dark:border-gray-700/30">
+          <div className="mb-4">
+            <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+              <Star className="mr-2 text-yellow-500" size={18} />
+              Alternative Forms (Debug: {megaEvolutions.length} found)
+            </h4>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              Mega Evolutions, Gigantamax forms, and other special variants
+            </p>
+          </div>
+          
+          {megaEvolutions.length === 0 ? (
+            <div className="text-center py-8">
+              <p className="text-gray-500 dark:text-gray-400">No mega evolutions found. Check console for debug info.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+            {megaEvolutions.map((mega) => {
+              const baseStatTotal = mega.stats.reduce((sum, stat) => sum + stat.base_stat, 0);
+              return (
+                <button
+                  key={mega.id}
+                  onClick={() => {
+                    setSelectedMegaEvolution(mega);
+                    setShowMegaModal(true);
+                  }}
+                  className="text-center p-4 glass rounded-xl border border-white/20 dark:border-gray-700/30 hover:scale-105 transition-all duration-300 cursor-pointer hover:bg-white/30 dark:hover:bg-gray-700/30 hover:shadow-lg flex flex-col"
+                  title={`View ${formatPokemonName(mega.name)} details`}
+                >
+                  {/* Badge at top */}
+                  <div className={`self-center text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg animate-pulse mb-3 ${
+                    mega.name.includes('mega') ? 'bg-gradient-to-r from-yellow-400 to-orange-500' :
+                    mega.name.includes('gmax') ? 'bg-gradient-to-r from-purple-500 to-pink-500' :
+                    mega.name.includes('primal') ? 'bg-gradient-to-r from-red-500 to-red-600' :
+                    mega.name.includes('ultra') ? 'bg-gradient-to-r from-blue-500 to-indigo-600' :
+                    'bg-gradient-to-r from-gray-500 to-gray-600'
+                  }`}>
+                    {mega.name.includes('mega') ? 'MEGA' : 
+                     mega.name.includes('gmax') ? 'GMAX' :
+                     mega.name.includes('primal') ? 'PRIMAL' :
+                     mega.name.includes('ultra') ? 'ULTRA' : 'FORM'}
+                  </div>
+
+                  {/* Pokemon info */}
+                  <div className="flex-1 flex flex-col justify-center mb-3">
+                    <p className="font-semibold text-gray-900 dark:text-gray-100">{formatPokemonName(mega.name)}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">#{mega.id.toString().padStart(3, '0')}</p>
+                    <div className="flex flex-col items-center gap-1 mt-2">
+                      {mega.types.map((type) => (
+                        <TypeIcon key={type.type.name} type={type.type.name} size={96} />
+                      ))}
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                      BST: {baseStatTotal}
+                    </p>
+                  </div>
+
+                  {/* Images at bottom */}
+                  <div className="flex justify-center space-x-3">
+                    {/* Normal Form */}
+                    <div className="relative">
+                      <Image
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${mega.id}.png`}
+                        alt={mega.name}
+                        width={60}
+                        height={60}
+                        className="transition-transform duration-300 hover:scale-110"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${mega.id}.png`;
+                        }}
+                      />
+                    </div>
+                    
+                    {/* Shiny Form */}
+                    <div className="relative">
+                      <Image
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${mega.id}.png`}
+                        alt={`Shiny ${mega.name}`}
+                        width={60}
+                        height={60}
+                        className="transition-transform duration-300 hover:scale-110"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${mega.id}.png`;
+                        }}
+                      />
+                      {/* Shiny sparkle indicator */}
+                      <div className="absolute -top-1 -right-1">
+                        <div className="w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center animate-pulse shadow-lg">
+                          <span className="text-white text-xs font-bold">✨</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+          )}
+        </div>
+      );
+    };
+
     return (
       <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
         <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
@@ -511,6 +723,7 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
         {evolutionChain ? (
           <div className="space-y-6">
             {renderEvolutionChain(evolutionChain.chain)}
+            {renderMegaEvolutions()}
           </div>
         ) : (
           <p className="text-gray-500 dark:text-gray-400">Loading evolution data...</p>
@@ -520,100 +733,417 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
   };
 
   const renderMovesTab = () => {
-    const levelUpMoves = pokemon.moves
-      .filter(move => move.version_group_details.some(detail => 
-        detail.move_learn_method.name === 'level-up'
-      ))
-      .map(move => {
-        const levelData = move.version_group_details.find(detail => 
-          detail.move_learn_method.name === 'level-up'
-        );
-        return {
-          ...move,
-          level: levelData?.level_learned_at || 0
-        };
-      })
-      .sort((a, b) => a.level - b.level);
-
-    const tmMoves = pokemon.moves.filter(move => 
-      move.version_group_details.some(detail => 
-        detail.move_learn_method.name === 'machine'
+    // Get all available version groups for this Pokemon and sort them by order
+    const availableVersionGroups = [
+      ...new Set(
+        pokemon.moves.flatMap(move => 
+          move.version_group_details.map(detail => detail.version_group.name)
+        )
       )
-    );
+    ].sort((a, b) => {
+      const orderA = VERSION_GROUPS[a]?.order || 999;
+      const orderB = VERSION_GROUPS[b]?.order || 999;
+      return orderA - orderB;
+    });
 
-    const eggMoves = pokemon.moves.filter(move => 
-      move.version_group_details.some(detail => 
-        detail.move_learn_method.name === 'egg'
-      )
-    );
+    // Set default version group if not selected (use the latest available game)
+    const currentVersionGroup = selectedVersionGroup || availableVersionGroups[availableVersionGroups.length - 1] || '';
 
-    return (
-      <div className="space-y-6">
+    // Filter moves by version group
+    const getMovesForVersionGroup = (learnMethod: string) => {
+      return pokemon.moves
+        .filter(move => move.version_group_details.some(detail => 
+          detail.move_learn_method.name === learnMethod &&
+          detail.version_group.name === currentVersionGroup
+        ))
+        .map(move => {
+          const versionDetail = move.version_group_details.find(detail => 
+            detail.move_learn_method.name === learnMethod &&
+            detail.version_group.name === currentVersionGroup
+          );
+          return {
+            ...move,
+            level: versionDetail?.level_learned_at || 0,
+            versionDetail
+          };
+        })
+        .sort((a, b) => {
+          if (learnMethod === 'level-up') {
+            return a.level - b.level;
+          }
+          return a.move.name.localeCompare(b.move.name);
+        });
+    };
+
+    const levelUpMoves = getMovesForVersionGroup('level-up');
+    const tmMoves = getMovesForVersionGroup('machine');
+    const eggMoves = getMovesForVersionGroup('egg');
+    const tutorMoves = getMovesForVersionGroup('tutor');
+
+    // Function to load move details with individual loading states
+    const loadMoveDetails = async (moveName: string) => {
+      if (moveDetails[moveName]) return;
+      
+      // Create a loading placeholder to prevent duplicate requests
+      setMoveDetails(prev => ({ 
+        ...prev, 
+        [moveName]: { 
+          loading: true 
+        } as Move | { loading: boolean }
+      }));
+      
+      try {
+        const moveData = await pokemonApi.getMove(moveName);
+        setMoveDetails(prev => ({ ...prev, [moveName]: moveData }));
+      } catch (error: unknown) {
+        console.error(`Failed to load move details for ${moveName}:`, error);
+        // Remove the loading placeholder on error
+        setMoveDetails(prev => {
+          const newDetails = { ...prev };
+          delete newDetails[moveName];
+          return newDetails;
+        });
+      }
+    };
+
+    // Batch load multiple moves at once for better performance
+    const batchLoadMoves = async (moveNames: string[]) => {
+      const movesToLoad = moveNames.filter(name => !moveDetails[name]);
+      if (movesToLoad.length === 0) return;
+
+      // Set loading states for all moves
+      setMoveDetails(prev => {
+        const newDetails = { ...prev };
+        movesToLoad.forEach(name => {
+          newDetails[name] = { loading: true } as Move | { loading: boolean };
+        });
+        return newDetails;
+      });
+
+      // Load moves in parallel with limited concurrency
+      const loadMove = async (moveName: string) => {
+        try {
+          const moveData = await pokemonApi.getMove(moveName);
+          setMoveDetails(prev => ({ ...prev, [moveName]: moveData }));
+        } catch (error: unknown) {
+          console.error(`Failed to batch load move ${moveName}:`, error);
+          setMoveDetails(prev => {
+            const newDetails = { ...prev };
+            delete newDetails[moveName];
+            return newDetails;
+          });
+        }
+      };
+
+      // Load moves in batches of 5 to avoid overwhelming the API
+      for (let i = 0; i < movesToLoad.length; i += 5) {
+        const batch = movesToLoad.slice(i, i + 5);
+        await Promise.allSettled(batch.map(loadMove));
+        
+        // Small delay between batches to be respectful to the API
+        if (i + 5 < movesToLoad.length) {
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
+      }
+    };
+
+    // Function to open move details modal
+    const openMoveModal = async (moveName: string) => {
+      // If we don't have the move details yet, load them
+      if (!moveDetails[moveName] || 'loading' in moveDetails[moveName]) {
+        await loadMoveDetails(moveName);
+      }
+      
+      const moveDetail = moveDetails[moveName];
+      if (moveDetail && !('loading' in moveDetail)) {
+        setSelectedMove(moveDetail as Move);
+        setShowMoveModal(true);
+      }
+    };
+
+    // Preload move details for visible moves using batch loading
+    const preloadMoveDetails = async (moves: Array<{ move: { name: string; url: string }; level: number }>) => {
+      const visibleMoves = moves.slice(0, 15); // Load first 15 moves
+      const moveNames = visibleMoves.map(move => move.move.name);
+      await batchLoadMoves(moveNames);
+    };
+
+    const MoveRow = ({ move, showLevel = false }: { 
+      move: { 
+        move: { name: string; url: string }; 
+        level: number; 
+        versionDetail?: {
+          level_learned_at: number;
+          move_learn_method: { name: string; url: string };
+          version_group: { name: string; url: string };
+        }
+      }; 
+      showLevel?: boolean 
+    }) => {
+      const moveDetail = moveDetails[move.move.name];
+      const isLoading = moveDetail && 'loading' in moveDetail;
+      const actualMoveDetail = !isLoading ? moveDetail as Move : null;
+      const moveCategory = actualMoveDetail?.damage_class.name || 'status';
+      const categoryInfo = MOVE_CATEGORIES[moveCategory] || MOVE_CATEGORIES.status;
+
+      // Auto-load move details when component mounts
+      React.useEffect(() => {
+        if (!moveDetail && move.move.name) {
+          loadMoveDetails(move.move.name);
+        }
+      }, [move.move.name, moveDetail]);
+
+      return (
+        <tr 
+          className="border-b border-gray-100 dark:border-gray-800 hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer"
+          onClick={() => openMoveModal(move.move.name)}
+          title="Click to view detailed move information"
+        >
+          {showLevel && (
+            <td className="py-3 px-2 text-gray-900 dark:text-gray-100 font-medium">
+              {move.level || '—'}
+            </td>
+          )}
+          <td className="py-3 px-2 font-semibold text-gray-900 dark:text-gray-100">
+            {formatPokemonName(move.move.name)}
+          </td>
+          <td className="py-3 px-2">
+            {actualMoveDetail ? (
+              <span 
+                className="px-3 py-1 rounded-full text-xs text-white font-medium"
+                style={{ backgroundColor: TYPE_COLORS[actualMoveDetail.type.name] || '#68D391' }}
+              >
+                {formatPokemonName(actualMoveDetail.type.name)}
+              </span>
+            ) : (
+              <div className="px-3 py-1 rounded-full text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 animate-pulse">
+                Loading...
+              </div>
+            )}
+          </td>
+          <td className="py-3 px-2">
+            <div className="flex items-center space-x-1">
+              <span>{categoryInfo.icon}</span>
+              <span className="text-xs" style={{ color: categoryInfo.color }}>
+                {actualMoveDetail ? categoryInfo.name : 'Loading...'}
+              </span>
+            </div>
+          </td>
+          <td className="py-3 px-2 text-center">
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+              {actualMoveDetail?.power || '—'}
+            </span>
+          </td>
+          <td className="py-3 px-2 text-center">
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+              {actualMoveDetail?.accuracy || '—'}
+            </span>
+          </td>
+          <td className="py-3 px-2 text-center">
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+              {actualMoveDetail?.pp || '—'}
+            </span>
+          </td>
+        </tr>
+      );
+    };
+
+    const MoveTable = ({ moves, title, icon, showLevel = false }: { 
+      moves: Array<{ 
+        move: { name: string; url: string }; 
+        level: number; 
+        versionDetail?: {
+          level_learned_at: number;
+          move_learn_method: { name: string; url: string };
+          version_group: { name: string; url: string };
+        }
+      }>; 
+      title: string; 
+      icon: React.ReactNode; 
+      showLevel?: boolean;
+    }) => {
+      // Preload move details when component mounts - must be before any conditional returns
+      React.useEffect(() => {
+        if (moves.length > 0) {
+          preloadMoveDetails(moves);
+        }
+      }, [moves]);
+
+      if (moves.length === 0) return null;
+
+      return (
         <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
           <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
-            <Zap className="mr-2" size={20} />
-            Level Up Moves
+            {icon}
+            {title}
+            <span className="ml-2 px-2 py-1 bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded-full text-xs font-medium">
+              {moves.length}
+            </span>
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 dark:border-gray-700">
-                  <th className="text-left py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">Level</th>
+                  {showLevel && (
+                    <th className="text-left py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">Level</th>
+                  )}
                   <th className="text-left py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">Move</th>
                   <th className="text-left py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">Type</th>
+                  <th className="text-left py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">Category</th>
+                  <th className="text-center py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">Power</th>
+                  <th className="text-center py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">Accuracy</th>
+                  <th className="text-center py-3 px-2 text-gray-600 dark:text-gray-400 font-medium">PP</th>
                 </tr>
               </thead>
               <tbody>
-                {levelUpMoves.slice(0, 20).map((move, index) => (
-                  <tr key={index} className="border-b border-gray-100 dark:border-gray-800 hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors">
-                    <td className="py-3 px-2 text-gray-900 dark:text-gray-100 font-medium">{move.level || '—'}</td>
-                    <td className="py-3 px-2 font-semibold text-gray-900 dark:text-gray-100">{formatPokemonName(move.move.name)}</td>
-                    <td className="py-3 px-2">
-                      <span 
-                        className="px-3 py-1 rounded-full text-xs text-white font-medium"
-                        style={{ backgroundColor: TYPE_COLORS[move.move.name] || '#68D391' }}
-                      >
-                        {formatPokemonName(move.move.name)}
-                      </span>
-                    </td>
-                  </tr>
+                {moves.map((move, index) => (
+                  <MoveRow key={index} move={move} showLevel={showLevel} />
                 ))}
               </tbody>
             </table>
           </div>
         </div>
+      );
+    };
 
-        {tmMoves.length > 0 && (
-          <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
-              <Zap className="mr-2" size={20} />
-              TM Moves
+    return (
+      <div className="space-y-6">
+        {/* Version Group Selector */}
+        <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+              <Gamepad2 className="mr-2" size={20} />
+              Game Version
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {tmMoves.slice(0, 15).map((move, index) => (
-                <div key={index} className="glass-subtle rounded-lg px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-100 border border-white/30 dark:border-gray-700/30 hover:scale-105 transition-transform duration-200">
-                  {formatPokemonName(move.move.name)}
-                </div>
-              ))}
+            <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
+              <Filter size={16} />
+              <span>Filter moves by game</span>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+            {availableVersionGroups.map((versionGroup) => {
+              const versionInfo = VERSION_GROUPS[versionGroup];
+              const isSelected = currentVersionGroup === versionGroup;
+              
+              return (
+                <button
+                  key={versionGroup}
+                  onClick={() => setSelectedVersionGroup(versionGroup)}
+                  className={`p-3 rounded-lg border transition-all duration-200 text-left ${
+                    isSelected
+                      ? 'bg-blue-500 text-white border-blue-500 shadow-lg scale-105'
+                      : 'bg-white/50 dark:bg-gray-800/50 border-white/30 dark:border-gray-700/30 hover:bg-white/70 dark:hover:bg-gray-700/50 text-gray-900 dark:text-gray-100'
+                  }`}
+                >
+                  <div className="font-medium text-sm">
+                    {versionInfo?.name || formatPokemonName(versionGroup)}
+                  </div>
+                  {versionInfo && (
+                    <div className={`text-xs mt-1 flex items-center justify-between ${isSelected ? 'text-blue-100' : 'text-gray-500 dark:text-gray-400'}`}>
+                      <span>Gen {versionInfo.generation}</span>
+                      <span className={`px-2 py-0.5 rounded-full text-xs ${isSelected ? 'bg-blue-400/30' : 'bg-gray-200 dark:bg-gray-700'}`}>
+                        #{versionInfo.order}
+                      </span>
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Current Game Info & Load All Button */}
+        {currentVersionGroup && VERSION_GROUPS[currentVersionGroup] && (
+          <div className="glass rounded-xl p-4 border border-white/20 dark:border-gray-700/30 bg-gradient-to-r from-blue-500/10 to-purple-500/10">
+            <div className="flex items-center justify-between">
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-gray-100">
+                  Viewing moves for: {VERSION_GROUPS[currentVersionGroup].name}
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Generation {VERSION_GROUPS[currentVersionGroup].generation} • 
+                  {VERSION_GROUPS[currentVersionGroup].games.join(', ')}
+                </p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <button
+                  onClick={() => {
+                    const allMoves = [...levelUpMoves, ...tmMoves, ...eggMoves, ...tutorMoves];
+                    const moveNames = allMoves.map(move => move.move.name);
+                    batchLoadMoves(moveNames);
+                  }}
+                  className="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-medium text-sm hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow-md hover:shadow-lg flex items-center space-x-2"
+                  title="Load all move details for better browsing"
+                >
+                  <Zap size={16} />
+                  <span>Load All Moves</span>
+                </button>
+                <div className="text-2xl">🎮</div>
+              </div>
             </div>
           </div>
         )}
 
-        {eggMoves.length > 0 && (
-          <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
-              <Baby className="mr-2" size={20} />
-              Egg Moves
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {eggMoves.map((move, index) => (
-                <div key={index} className="glass-subtle rounded-lg px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-100 border border-white/30 dark:border-gray-700/30 hover:scale-105 transition-transform duration-200">
-                  {formatPokemonName(move.move.name)}
-                </div>
-              ))}
+        {/* Quick Load Hint */}
+        <div className="glass rounded-xl p-3 border border-white/20 dark:border-gray-700/30 bg-gradient-to-r from-yellow-500/10 to-orange-500/10">
+          <div className="flex items-center justify-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
+            <span>💡</span>
+            <span>Tip: Click on any move row to view detailed information in a popup, or use &ldquo;Load All Moves&rdquo; for faster browsing</span>
+          </div>
+        </div>
+
+        {/* Move Tables */}
+        <MoveTable 
+          moves={levelUpMoves} 
+          title="Level Up Moves" 
+          icon={<Zap className="mr-2" size={20} />}
+          showLevel={true}
+        />
+        
+        <MoveTable 
+          moves={tmMoves} 
+          title="TM/TR Moves" 
+          icon={<Shield className="mr-2" size={20} />}
+        />
+
+        <MoveTable 
+          moves={eggMoves} 
+          title="Egg Moves" 
+          icon={<Baby className="mr-2" size={20} />}
+        />
+
+        {tutorMoves.length > 0 && (
+          <MoveTable 
+            moves={tutorMoves} 
+            title="Move Tutor" 
+            icon={<Star className="mr-2" size={20} />}
+          />
+        )}
+
+        {/* Summary */}
+        <div className="glass rounded-xl p-4 border border-white/20 dark:border-gray-700/30">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div>
+              <div className="text-2xl font-bold text-blue-500">{levelUpMoves.length}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Level Up</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-purple-500">{tmMoves.length}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">TM/TR</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-orange-500">{eggMoves.length}</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Egg Moves</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-green-500">
+                {levelUpMoves.length + tmMoves.length + eggMoves.length + tutorMoves.length}
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     );
   };
@@ -624,7 +1154,7 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
     { id: 'type-defenses', label: 'Type Defenses', icon: Shield },
     { id: 'breeding', label: 'Breeding', icon: Heart },
     { id: 'evolution', label: 'Evolution', icon: Users },
-    { id: 'moves', label: 'Moves', icon: Zap },
+    { id: 'moves', label: 'Moves Learned', icon: Gamepad2 },
   ];
 
   return (
@@ -667,27 +1197,68 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
                 </div>
               </div>
               
-              <div className="relative">
-                <div className="absolute -inset-4 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
-                <button
-                  onClick={() => setShowSpritesModal(true)}
-                  className="relative z-10 group"
-                  title="Click to view all sprites"
-                >
-                  <Image
-                    src={pokemon.sprites.other['official-artwork']?.front_default || pokemon.sprites.front_default || '/placeholder-pokemon.svg'}
-                    alt={pokemon.name}
-                    width={200}
-                    height={200}
-                    className="drop-shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
-                  />
-                  {/* Overlay with hint */}
-                  <div className="absolute inset-0 bg-black/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="bg-white/90 dark:bg-gray-800/90 px-3 py-1 rounded-full text-sm font-medium text-gray-900 dark:text-gray-100">
-                      View All Sprites
+              <div className="relative flex space-x-6">
+                {/* Normal Version */}
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-white/20 rounded-full blur-2xl animate-pulse"></div>
+                  <button
+                    onClick={() => setShowSpritesModal(true)}
+                    className="relative z-10 group"
+                    title="Click to view all sprites"
+                  >
+                    <Image
+                      src={pokemon.sprites.other['official-artwork']?.front_default || pokemon.sprites.front_default || '/placeholder-pokemon.svg'}
+                      alt={`${pokemon.name} normal`}
+                      width={180}
+                      height={180}
+                      className="drop-shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    />
+                    {/* Overlay with hint */}
+                    <div className="absolute inset-0 bg-black/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="bg-white/90 dark:bg-gray-800/90 px-2 py-1 rounded-full text-xs font-medium text-gray-900 dark:text-gray-100">
+                        View All Sprites
+                      </div>
                     </div>
+                  </button>
+                  <div className="text-center mt-2">
+                    <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm font-medium">
+                      Normal
+                    </span>
                   </div>
-                </button>
+                </div>
+
+                {/* Shiny Version */}
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-yellow-400/30 to-orange-400/30 rounded-full blur-2xl animate-pulse"></div>
+                  <button
+                    onClick={() => setShowSpritesModal(true)}
+                    className="relative z-10 group"
+                    title="Click to view all sprites"
+                  >
+                    <Image
+                      src={pokemon.sprites.other['official-artwork']?.front_shiny || pokemon.sprites.front_shiny || '/placeholder-pokemon.svg'}
+                      alt={`${pokemon.name} shiny`}
+                      width={180}
+                      height={180}
+                      className="drop-shadow-2xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    />
+                    {/* Shiny sparkle effect */}
+                    <div className="absolute top-2 right-2 text-yellow-300 animate-pulse">
+                      ✨
+                    </div>
+                    {/* Overlay with hint */}
+                    <div className="absolute inset-0 bg-black/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="bg-white/90 dark:bg-gray-800/90 px-2 py-1 rounded-full text-xs font-medium text-gray-900 dark:text-gray-100">
+                        View All Sprites
+                      </div>
+                    </div>
+                  </button>
+                  <div className="text-center mt-2">
+                    <span className="bg-gradient-to-r from-yellow-400 to-orange-400 px-3 py-1 rounded-full text-white text-sm font-medium shadow-lg">
+                      ✨ Shiny
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -696,25 +1267,52 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
         {/* Navigation Tabs */}
         <div className="glass border-b border-white/20 dark:border-gray-700/30 sticky top-0 z-20">
           <div className="container mx-auto px-4">
-            <nav className="flex space-x-8 overflow-x-auto scrollbar-hide">
-              {tabs.map((tab) => {
-                const Icon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center space-x-2 py-4 px-2 border-b-2 transition-all duration-200 whitespace-nowrap ${
-                      activeTab === tab.id
-                        ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                        : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                    }`}
-                  >
-                    <Icon size={18} />
-                    <span className="font-medium">{tab.label}</span>
-                  </button>
-                );
-              })}
-            </nav>
+            <div className="flex items-center justify-between">
+              <nav className="flex space-x-2 md:space-x-8 overflow-x-auto tab-navigation pb-2 md:pb-0 flex-1">
+                {tabs.map((tab) => {
+                  const Icon = tab.icon;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`flex items-center space-x-1 md:space-x-2 py-3 md:py-4 px-3 md:px-2 border-b-2 transition-all duration-200 whitespace-nowrap min-w-fit ${
+                        activeTab === tab.id
+                          ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 rounded-t-lg'
+                          : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-white/50 dark:hover:bg-gray-800/50 rounded-t-lg'
+                      }`}
+                    >
+                      <Icon size={16} className="md:w-[18px] md:h-[18px]" />
+                      <span className="font-medium text-sm md:text-base">{tab.label}</span>
+                    </button>
+                  );
+                })}
+              </nav>
+              
+              {/* Quick Moves Tab Button for Mobile */}
+              <div className="md:hidden ml-2">
+                <button
+                  onClick={() => setActiveTab('moves')}
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-lg border transition-all duration-200 ${
+                    activeTab === 'moves'
+                      ? 'bg-blue-500 text-white border-blue-500 shadow-md'
+                      : 'bg-white/50 dark:bg-gray-800/50 border-white/30 dark:border-gray-700/30 text-gray-600 dark:text-gray-400'
+                  }`}
+                  title="View Moves"
+                >
+                  <Gamepad2 size={16} />
+                  <span className="text-xs font-medium">Moves</span>
+                </button>
+              </div>
+            </div>
+            
+            {/* Scroll hint for mobile */}
+            <div className="md:hidden text-center py-1">
+              <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center space-x-1">
+                <span>←</span>
+                <span>Scroll for all tabs or use quick button</span>
+                <span>→</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -735,6 +1333,26 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
         pokemon={pokemon}
         isOpen={showSpritesModal}
         onClose={() => setShowSpritesModal(false)}
+      />
+      
+      {/* Move Detail Modal */}
+      <MoveDetailModal
+        move={selectedMove}
+        isOpen={showMoveModal}
+        onClose={() => {
+          setShowMoveModal(false);
+          setSelectedMove(null);
+        }}
+      />
+      
+      {/* Mega Evolution Modal */}
+      <MegaEvolutionModal
+        pokemon={selectedMegaEvolution}
+        isOpen={showMegaModal}
+        onClose={() => {
+          setShowMegaModal(false);
+          setSelectedMegaEvolution(null);
+        }}
       />
     </div>
   );
