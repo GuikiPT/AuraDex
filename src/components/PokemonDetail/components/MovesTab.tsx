@@ -6,9 +6,10 @@ import { VERSION_GROUPS, MOVE_CATEGORIES, TYPE_COLORS } from '@/constants/pokemo
 
 interface MovesTabProps {
   pokemon: Pokemon;
+  onMoveClick?: (moveName: string) => void;
 }
 
-export const MovesTab: React.FC<MovesTabProps> = ({ pokemon }) => {
+export const MovesTab: React.FC<MovesTabProps> = ({ pokemon, onMoveClick }) => {
   const [selectedVersionGroup, setSelectedVersionGroup] = useState<string>('');
   const [moveDetails, setMoveDetails] = useState<Record<string, Move | { loading: boolean }>>({});
 
@@ -126,21 +127,6 @@ export const MovesTab: React.FC<MovesTabProps> = ({ pokemon }) => {
     }
   };
 
-  // Function to open move details modal
-  const openMoveModal = async (moveName: string) => {
-    // If we don't have the move details yet, load them
-    if (!moveDetails[moveName] || 'loading' in moveDetails[moveName]) {
-      await loadMoveDetails(moveName);
-    }
-    
-    // For now, just console.log the move details
-    const moveDetail = moveDetails[moveName];
-    if (moveDetail && !('loading' in moveDetail)) {
-      console.log('Move details:', moveDetail);
-      // TODO: Implement modal functionality
-    }
-  };
-
   // Preload move details for visible moves using batch loading
   const preloadMoveDetails = async (moves: Array<{ move: { name: string; url: string }; level: number }>) => {
     const visibleMoves = moves.slice(0, 15); // Load first 15 moves
@@ -181,7 +167,7 @@ export const MovesTab: React.FC<MovesTabProps> = ({ pokemon }) => {
     return (
       <tr 
         className="border-b border-gray-100 dark:border-gray-800 hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer"
-        onClick={() => openMoveModal(move.move.name)}
+        onClick={() => onMoveClick?.(move.move.name)}
         title="Click to view detailed move information"
       >
         {showLevel && (

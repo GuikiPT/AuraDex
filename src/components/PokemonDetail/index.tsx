@@ -40,7 +40,8 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonId }) => {
     selectedMove,
     showMoveModal,
     setSelectedMove,
-    setShowMoveModal
+    setShowMoveModal,
+    openMoveModal
   } = useMoveDetails();
 
   // Encounters management
@@ -205,7 +206,7 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonId }) => {
           />
         );
       case 'moves':
-        return <MovesTab pokemon={pokemon} />;
+        return <MovesTab pokemon={pokemon} onMoveClick={openMoveModal} />;
       case 'locations':
         return (
           <LocationsTab
