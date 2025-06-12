@@ -1,0 +1,7300 @@
+{
+  "dugtrio": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    }
+  ],
+  "umbreon": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    }
+  ],
+  "dunsparce": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "asadodesert",
+      "biome": "Prairie"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "larvitar": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "pupitar": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    }
+  ],
+  "hariyama": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "makuhita": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "asadodesert",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s4",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Rocky"
+    }
+  ],
+  "sableye": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "meditite": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "medicham": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    }
+  ],
+  "bagon": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "shelgon": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    }
+  ],
+  "gabite": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    }
+  ],
+  "gible": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "deino": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    }
+  ],
+  "gumshoos": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s4",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "yungoos": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "asadodesert",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "inletgrotto",
+      "biome": "Cave"
+    },
+    {
+      "location": "s2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Rocky"
+    }
+  ],
+  "salandit": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "salazzle": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    }
+  ],
+  "toxtricity": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "glimmet": [
+    {
+      "location": "alfornada",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s6",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "phanpy": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "donphan": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    }
+  ],
+  "cacnea": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    }
+  ],
+  "hippopotas": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    }
+  ],
+  "sandile": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    }
+  ],
+  "rufflet": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "larvesta": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    }
+  ],
+  "silicobra": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    }
+  ],
+  "stonjourner": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "asadodesert",
+      "biome": "Ruins"
+    }
+  ],
+  "bramblin": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    }
+  ],
+  "capsakid": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "rellor": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    }
+  ],
+  "flittle": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "orthworm": [
+    {
+      "location": "asadodesert",
+      "biome": "Desert"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    }
+  ],
+  "combee": [
+    {
+      "location": "asadodesert",
+      "biome": "Flower"
+    },
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "s1",
+      "biome": "Flower"
+    },
+    {
+      "location": "s2",
+      "biome": "Flower"
+    },
+    {
+      "location": "s2",
+      "biome": "Olive"
+    },
+    {
+      "location": "s4",
+      "biome": "Flower"
+    },
+    {
+      "location": "s5",
+      "biome": "Flower"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    },
+    {
+      "location": "w1",
+      "biome": "Flower"
+    }
+  ],
+  "flabébé": [
+    {
+      "location": "asadodesert",
+      "biome": "Flower"
+    },
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "s2",
+      "biome": "Flower"
+    }
+  ],
+  "floette": [
+    {
+      "location": "asadodesert",
+      "biome": "Flower"
+    },
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "n1",
+      "biome": "Flower"
+    },
+    {
+      "location": "n2",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "s4",
+      "biome": "Flower"
+    },
+    {
+      "location": "s5",
+      "biome": "Flower"
+    },
+    {
+      "location": "s6",
+      "biome": "Flower"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    },
+    {
+      "location": "w1",
+      "biome": "Flower"
+    }
+  ],
+  "murkrow": [
+    {
+      "location": "asadodesert",
+      "biome": "Prairie"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s6",
+      "biome": "Town"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "pawmo": [
+    {
+      "location": "asadodesert",
+      "biome": "Prairie"
+    },
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "pawmi": [
+    {
+      "location": "asadodesert",
+      "biome": "Prairie"
+    },
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "pocopath",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "thicket",
+      "biome": "Prairie"
+    }
+  ],
+  "toedscool": [
+    {
+      "location": "asadodesert",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "psyduck": [
+    {
+      "location": "asadodesert",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "marill": [
+    {
+      "location": "asadodesert",
+      "biome": "Riverside"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    }
+  ],
+  "buizel": [
+    {
+      "location": "asadodesert",
+      "biome": "Riverside"
+    },
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Ocean"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "es",
+      "biome": "Beach"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "pocopath",
+      "biome": "Beach"
+    },
+    {
+      "location": "pocopath",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s1",
+      "biome": "Beach"
+    },
+    {
+      "location": "s1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "thicket",
+      "biome": "Ocean"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w1",
+      "biome": "Beach"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "chewtle": [
+    {
+      "location": "asadodesert",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    }
+  ],
+  "drednaw": [
+    {
+      "location": "asadodesert",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "dreepy": [
+    {
+      "location": "asadodesert",
+      "biome": "Riverside"
+    },
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "tadbulb": [
+    {
+      "location": "asadodesert",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "skiddo": [
+    {
+      "location": "asadodesert",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "lokix": [
+    {
+      "location": "asadodesert",
+      "biome": "Rocky"
+    },
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "nacli": [
+    {
+      "location": "asadodesert",
+      "biome": "Rocky"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "es",
+      "biome": "Beach"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s4",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w1",
+      "biome": "Beach"
+    },
+    {
+      "location": "w1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "charcadet": [
+    {
+      "location": "asadodesert",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "e2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "gastly": [
+    {
+      "location": "asadodesert",
+      "biome": "Ruins"
+    },
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Ruins"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "s1",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s2",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s3",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Ruins"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Ruins"
+    }
+  ],
+  "bronzor": [
+    {
+      "location": "asadodesert",
+      "biome": "Ruins"
+    },
+    {
+      "location": "e2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s3",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s4",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s5",
+      "biome": "Ruins"
+    },
+    {
+      "location": "w1",
+      "biome": "Ruins"
+    }
+  ],
+  "falinks": [
+    {
+      "location": "asadodesert",
+      "biome": "Ruins"
+    },
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "n2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "w1",
+      "biome": "Ruins"
+    }
+  ],
+  "tinkatuff": [
+    {
+      "location": "asadodesert",
+      "biome": "Ruins"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Ruins"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Ruins"
+    },
+    {
+      "location": "w3",
+      "biome": "Ruins"
+    }
+  ],
+  "sneasel": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "weavile": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    }
+  ],
+  "zweilous": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "lycanroc": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "flutter mane": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    }
+  ],
+  "iron jugulis": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "roaring moon": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "iron valiant": [
+    {
+      "location": "c1",
+      "biome": "Cave"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "chansey": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Flower"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n2",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s6",
+      "biome": "Flower"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "espeon": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "n3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "raichu": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "venomoth": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "girafarig": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    }
+  ],
+  "braviary": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    }
+  ],
+  "volcarona": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "corviknight": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "farigiraf": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "scream tail*": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "brute bonnet*": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "iron bundle*": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "iron hands*": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "frosmoth": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    }
+  ],
+  "slither wing*": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "iron moth*": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    }
+  ],
+  "jumpluff": [
+    {
+      "location": "c1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "n1",
+      "biome": "Flower"
+    },
+    {
+      "location": "n2",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s6",
+      "biome": "Flower"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "golduck": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "n1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n2",
+      "biome": "Lake"
+    },
+    {
+      "location": "n3",
+      "biome": "Riverside"
+    }
+  ],
+  "vaporeon": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "n1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n2",
+      "biome": "Lake"
+    },
+    {
+      "location": "n3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "floatzel": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Ocean"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Beach"
+    },
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n3",
+      "biome": "Beach"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "drakloak": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "n1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n2",
+      "biome": "Lake"
+    },
+    {
+      "location": "n3",
+      "biome": "Riverside"
+    }
+  ],
+  "masquerain": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    }
+  ],
+  "altaria": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n2",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "bisharp": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    }
+  ],
+  "bellibolt": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    }
+  ],
+  "flamigo": [
+    {
+      "location": "c1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "n3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "camerupt": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    }
+  ],
+  "honchkrow": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Rocky"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "talonflame": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    }
+  ],
+  "gogoat": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    }
+  ],
+  "hawlucha": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n3",
+      "biome": "Rocky"
+    }
+  ],
+  "garganacl": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "sandy shocks*": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    }
+  ],
+  "iron thorns*": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    }
+  ],
+  "copperajah": [
+    {
+      "location": "c1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Rocky"
+    }
+  ],
+  "houndstone": [
+    {
+      "location": "c1",
+      "biome": "Ruins"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Ruins"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Ruins"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "espathra": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    }
+  ],
+  "glimmora": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "dudunsparce": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "great tusk": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "scream tail": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "brute bonnet": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "flutter mane*": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "iron treads": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "iron bundle": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "iron hands": [
+    {
+      "location": "c1",
+      "biome": "Underground"
+    }
+  ],
+  "slowpoke": [
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    }
+  ],
+  "slowbro": [
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    }
+  ],
+  "gastrodon": [
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    }
+  ],
+  "shellos": [
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    }
+  ],
+  "palossand": [
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    }
+  ],
+  "sandygast": [
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    }
+  ],
+  "pincurchin": [
+    {
+      "location": "casseroya",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "es",
+      "biome": "Beach"
+    },
+    {
+      "location": "n1",
+      "biome": "Beach"
+    },
+    {
+      "location": "n3",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    }
+  ],
+  "scyther": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "n2",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "gyarados": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "dratini": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "n2",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    }
+  ],
+  "dragonair": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    }
+  ],
+  "azumarill": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "swalot": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    }
+  ],
+  "gulpin": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "s3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    }
+  ],
+  "swablu": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "tropius": [
+    {
+      "location": "casseroya",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "cloyster": [
+    {
+      "location": "casseroya",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "skrelp": [
+    {
+      "location": "casseroya",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "dragalge": [
+    {
+      "location": "casseroya",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    }
+  ],
+  "clawitzer": [
+    {
+      "location": "casseroya",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "toxicroak": [
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    }
+  ],
+  "croagunk": [
+    {
+      "location": "casseroya",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    }
+  ],
+  "cufant": [
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    }
+  ],
+  "naclstack": [
+    {
+      "location": "casseroya",
+      "biome": "Rocky"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Beach"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n3",
+      "biome": "Beach"
+    },
+    {
+      "location": "n3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s6",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    }
+  ],
+  "bronzong": [
+    {
+      "location": "casseroya",
+      "biome": "Ruins"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Ruins"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Ruins"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "s6",
+      "biome": "Ruins"
+    },
+    {
+      "location": "w3",
+      "biome": "Ruins"
+    }
+  ],
+  "mabosstiff": [
+    {
+      "location": "casseroya",
+      "biome": "Ruins"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Ruins"
+    }
+  ],
+  "maschiff": [
+    {
+      "location": "casseroya",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s4",
+      "biome": "Ruins"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "greavard": [
+    {
+      "location": "casseroya",
+      "biome": "Ruins"
+    },
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "w3",
+      "biome": "Ruins"
+    }
+  ],
+  "glalie": [
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    }
+  ],
+  "glaceon": [
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    }
+  ],
+  "froslass": [
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    }
+  ],
+  "beartic": [
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    }
+  ],
+  "cubchoo": [
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "cetitan": [
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n3",
+      "biome": "Snowfield"
+    }
+  ],
+  "cetoddle": [
+    {
+      "location": "casseroya",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "shellder": [
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "zhellos": [
+    {
+      "location": "e1",
+      "biome": "Beach"
+    }
+  ],
+  "crabrawler": [
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "es",
+      "biome": "Beach"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "w1",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    }
+  ],
+  "mareanie": [
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Beach"
+    }
+  ],
+  "wiglett": [
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "es",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "w1",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    }
+  ],
+  "wattrel": [
+    {
+      "location": "e1",
+      "biome": "Beach"
+    },
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Beach"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Beach"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Beach"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Beach"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "pikachu": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "s2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "venonat": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "pineco": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "teddiursa": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    }
+  ],
+  "bounsweet": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "s1",
+      "biome": "Forest"
+    },
+    {
+      "location": "s2",
+      "biome": "Forest"
+    }
+  ],
+  "steenee": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    }
+  ],
+  "komala": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "applin": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "lechonk": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "pocopath",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s1",
+      "biome": "Forest"
+    },
+    {
+      "location": "s1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "thicket",
+      "biome": "Prairie"
+    }
+  ],
+  "spidops": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "shroodle": [
+    {
+      "location": "e1",
+      "biome": "Flower"
+    },
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s1",
+      "biome": "Forest"
+    },
+    {
+      "location": "s2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "misdreavus": [
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    }
+  ],
+  "drifloon": [
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "litleo": [
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    }
+  ],
+  "rockruff": [
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s2",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "mudbray": [
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "rookidee": [
+    {
+      "location": "e1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "s3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    }
+  ],
+  "magikarp": [
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "pocopath",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Ocean"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "qwilfish": [
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "luvdisc": [
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "clauncher": [
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "arrokuda": [
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "pocopath",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "thicket",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "finizen": [
+    {
+      "location": "e1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "e3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s5",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "tauros": [
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    }
+  ],
+  "skiploom": [
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Flower"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    }
+  ],
+  "deerling": [
+    {
+      "location": "e1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "basculin": [
+    {
+      "location": "e1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    }
+  ],
+  "shuppet": [
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    }
+  ],
+  "oricorio": [
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "s1",
+      "biome": "Flower"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    }
+  ],
+  "tandemaus": [
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "sqawkabilly": [
+    {
+      "location": "e1",
+      "biome": "Town"
+    },
+    {
+      "location": "s3",
+      "biome": "Town"
+    }
+  ],
+  "oinkologne": [
+    {
+      "location": "e2",
+      "biome": "Forest"
+    },
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "cyclizard": [
+    {
+      "location": "e2",
+      "biome": "Forest"
+    }
+  ],
+  "magnemite": [
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "cyclizar": [
+    {
+      "location": "e2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e2",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w2",
+      "biome": "Riverside"
+    }
+  ],
+  "mimikyu": [
+    {
+      "location": "e2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Ruins"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "tinkatink": [
+    {
+      "location": "e2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s3",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s4",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s5",
+      "biome": "Ruins"
+    },
+    {
+      "location": "w1",
+      "biome": "Ruins"
+    }
+  ],
+  "grimer": [
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    }
+  ],
+  "kirlia": [
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    }
+  ],
+  "rotom": [
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    }
+  ],
+  "squawkabilly": [
+    {
+      "location": "e2",
+      "biome": "Town"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    }
+  ],
+  "diglett": [
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "inletgrotto",
+      "biome": "Cave"
+    },
+    {
+      "location": "s2",
+      "biome": "Olive"
+    },
+    {
+      "location": "w1",
+      "biome": "Cave"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "rolycoly": [
+    {
+      "location": "e3",
+      "biome": "Cave"
+    },
+    {
+      "location": "e3",
+      "biome": "Mine"
+    }
+  ],
+  "barboach": [
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    }
+  ],
+  "goomy": [
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    }
+  ],
+  "clodsire": [
+    {
+      "location": "e3",
+      "biome": "Lake"
+    },
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    }
+  ],
+  "meowth": [
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "growlithe": [
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    }
+  ],
+  "voltorb": [
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "torkoal": [
+    {
+      "location": "e3",
+      "biome": "Mine"
+    }
+  ],
+  "varoom": [
+    {
+      "location": "e3",
+      "biome": "Mine"
+    },
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    }
+  ],
+  "corvisquire": [
+    {
+      "location": "e3",
+      "biome": "Prairie"
+    }
+  ],
+  "pawniard": [
+    {
+      "location": "e3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    },
+    {
+      "location": "thicket",
+      "biome": "Riverside"
+    },
+    {
+      "location": "thicket",
+      "biome": "Rocky"
+    }
+  ],
+  "gothita": [
+    {
+      "location": "e3",
+      "biome": "Town"
+    }
+  ],
+  "sinistea": [
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "s6",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s6",
+      "biome": "Town"
+    }
+  ],
+  "dachsbun": [
+    {
+      "location": "e3",
+      "biome": "Town"
+    },
+    {
+      "location": "s6",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "wugtrio": [
+    {
+      "location": "es",
+      "biome": "Beach"
+    },
+    {
+      "location": "n1",
+      "biome": "Beach"
+    },
+    {
+      "location": "n3",
+      "biome": "Beach"
+    }
+  ],
+  "sunflora": [
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "n1",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "s6",
+      "biome": "Flower"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    }
+  ],
+  "vivillon": [
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "n1",
+      "biome": "Flower"
+    },
+    {
+      "location": "n2",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "s6",
+      "biome": "Flower"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    }
+  ],
+  "dolliv": [
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "s6",
+      "biome": "Flower"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    }
+  ],
+  "smoliv": [
+    {
+      "location": "es",
+      "biome": "Flower"
+    },
+    {
+      "location": "s2",
+      "biome": "Olive"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    }
+  ],
+  "lumineon": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "finneon": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "alomomola": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    }
+  ],
+  "tynamo": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "eelektrik": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "bergmite": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    }
+  ],
+  "avalugg": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    }
+  ],
+  "barraskewda": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Riverside"
+    },
+    {
+      "location": "w3",
+      "biome": "Riverside"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "eiscue": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Beach"
+    },
+    {
+      "location": "n3",
+      "biome": "Beach"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    }
+  ],
+  "kilowattrel": [
+    {
+      "location": "es",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n1",
+      "biome": "Beach"
+    },
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "n3",
+      "biome": "Beach"
+    },
+    {
+      "location": "n3",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "magneton": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "haunter": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Ruins"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Ruins"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    }
+  ],
+  "flareon": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "ampharos": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "mareep": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s2",
+      "biome": "Olive"
+    },
+    {
+      "location": "s2",
+      "biome": "Prairie"
+    }
+  ],
+  "ursaring": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    }
+  ],
+  "vigoroth": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "grumpig": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    }
+  ],
+  "spoink": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    }
+  ],
+  "snorunt": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "drifblim": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Town"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    }
+  ],
+  "gallade": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "sawsbuck": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Snowfield"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "axew": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    }
+  ],
+  "fraxure": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Riverside"
+    }
+  ],
+  "pyroar": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    }
+  ],
+  "mudsdale": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "greedent": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "skwovet": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s1",
+      "biome": "Forest"
+    },
+    {
+      "location": "s2",
+      "biome": "Forest"
+    },
+    {
+      "location": "s2",
+      "biome": "Olive"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "snom": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "scovillain": [
+    {
+      "location": "glaseado",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    }
+  ],
+  "revavroom": [
+    {
+      "location": "glaseado",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    }
+  ],
+  "hypno": [
+    {
+      "location": "glaseado",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s6",
+      "biome": "Ruins"
+    },
+    {
+      "location": "w3",
+      "biome": "Ruins"
+    }
+  ],
+  "delibird": [
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "frigibax": [
+    {
+      "location": "glaseado",
+      "biome": "Snowfield"
+    }
+  ],
+  "houndour": [
+    {
+      "location": "inletgrotto",
+      "biome": "Cave"
+    },
+    {
+      "location": "s4",
+      "biome": "Rocky"
+    }
+  ],
+  "noibat": [
+    {
+      "location": "n1",
+      "biome": "Cave"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w2",
+      "biome": "Cave"
+    }
+  ],
+  "vespiquen": [
+    {
+      "location": "n1",
+      "biome": "Flower"
+    },
+    {
+      "location": "n2",
+      "biome": "Flower"
+    },
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "s6",
+      "biome": "Flower"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    }
+  ],
+  "lurantis": [
+    {
+      "location": "n1",
+      "biome": "Flower"
+    },
+    {
+      "location": "n2",
+      "biome": "Flower"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "whiscash": [
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    }
+  ],
+  "mismagius": [
+    {
+      "location": "n1",
+      "biome": "Lake"
+    },
+    {
+      "location": "n2",
+      "biome": "Lake"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    }
+  ],
+  "wigglytuff": [
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    }
+  ],
+  "lucario": [
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    }
+  ],
+  "indeedee": [
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    }
+  ],
+  "brambleghast": [
+    {
+      "location": "n1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "eiscur": [
+    {
+      "location": "n1",
+      "biome": "Ocean"
+    }
+  ],
+  "primeape": [
+    {
+      "location": "n1",
+      "biome": "Rocky"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Rocky"
+    }
+  ],
+  "arcanine": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    }
+  ],
+  "heracross": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "kricketune": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    }
+  ],
+  "luxray": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    }
+  ],
+  "foongus": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "amoonguss": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "oranguru": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "passimian": [
+    {
+      "location": "n2",
+      "biome": "Bamboo Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "houndoom": [
+    {
+      "location": "n2",
+      "biome": "Cave"
+    },
+    {
+      "location": "n2",
+      "biome": "Rocky"
+    }
+  ],
+  "lilligant": [
+    {
+      "location": "n3",
+      "biome": "Flower"
+    }
+  ],
+  "dedenne": [
+    {
+      "location": "n3",
+      "biome": "Flower"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "pelipper": [
+    {
+      "location": "ns",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "wingull": [
+    {
+      "location": "pocopath",
+      "biome": "Beach"
+    },
+    {
+      "location": "pocopath",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s1",
+      "biome": "Beach"
+    },
+    {
+      "location": "s1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "thicket",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w1",
+      "biome": "Beach"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w2",
+      "biome": "Beach"
+    },
+    {
+      "location": "w2",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "hoppip": [
+    {
+      "location": "pocopath",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "thicket",
+      "biome": "Prairie"
+    }
+  ],
+  "fletchling": [
+    {
+      "location": "pocopath",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "thicket",
+      "biome": "Prairie"
+    }
+  ],
+  "scatterbug": [
+    {
+      "location": "pocopath",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "thicket",
+      "biome": "Prairie"
+    }
+  ],
+  "tarountula": [
+    {
+      "location": "pocopath",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s1",
+      "biome": "Forest"
+    },
+    {
+      "location": "s1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Prairie"
+    }
+  ],
+  "sunkern": [
+    {
+      "location": "s1",
+      "biome": "Flower"
+    },
+    {
+      "location": "s2",
+      "biome": "Flower"
+    }
+  ],
+  "happiny": [
+    {
+      "location": "s1",
+      "biome": "Flower"
+    },
+    {
+      "location": "s1",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s2",
+      "biome": "Flower"
+    },
+    {
+      "location": "s2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "thicket",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w1",
+      "biome": "Flower"
+    }
+  ],
+  "spewpa": [
+    {
+      "location": "s1",
+      "biome": "Flower"
+    },
+    {
+      "location": "s4",
+      "biome": "Flower"
+    },
+    {
+      "location": "s5",
+      "biome": "Flower"
+    }
+  ],
+  "pichu": [
+    {
+      "location": "s1",
+      "biome": "Forest"
+    },
+    {
+      "location": "s2",
+      "biome": "Forest"
+    }
+  ],
+  "bonsly": [
+    {
+      "location": "s1",
+      "biome": "Forest"
+    },
+    {
+      "location": "s2",
+      "biome": "Forest"
+    }
+  ],
+  "wooper": [
+    {
+      "location": "s1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Swamp"
+    },
+    {
+      "location": "thicket",
+      "biome": "Lake"
+    }
+  ],
+  "surskit": [
+    {
+      "location": "s1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Riverside"
+    }
+  ],
+  "azurill": [
+    {
+      "location": "s1",
+      "biome": "Lake"
+    },
+    {
+      "location": "s1",
+      "biome": "Riverside"
+    },
+    {
+      "location": "s2",
+      "biome": "Riverside"
+    }
+  ],
+  "drowzee": [
+    {
+      "location": "s1",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s2",
+      "biome": "Ruins"
+    },
+    {
+      "location": "s3",
+      "biome": "Ruins"
+    }
+  ],
+  "igglybuff": [
+    {
+      "location": "s1",
+      "biome": "Town"
+    },
+    {
+      "location": "s2",
+      "biome": "Town"
+    }
+  ],
+  "ralts": [
+    {
+      "location": "s1",
+      "biome": "Town"
+    }
+  ],
+  "fidough": [
+    {
+      "location": "s1",
+      "biome": "Town"
+    },
+    {
+      "location": "s2",
+      "biome": "Town"
+    }
+  ],
+  "midreavus": [
+    {
+      "location": "s2",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Lake"
+    }
+  ],
+  "eevee": [
+    {
+      "location": "s2",
+      "biome": "Olive"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "starly": [
+    {
+      "location": "s2",
+      "biome": "Olive"
+    },
+    {
+      "location": "s2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    }
+  ],
+  "kricketot": [
+    {
+      "location": "s2",
+      "biome": "Olive"
+    }
+  ],
+  "jigglypuff": [
+    {
+      "location": "s2",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "nymble": [
+    {
+      "location": "s3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "shinx": [
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    }
+  ],
+  "klawf": [
+    {
+      "location": "s3",
+      "biome": "Rocky"
+    }
+  ],
+  "petilil": [
+    {
+      "location": "s4",
+      "biome": "Flower"
+    },
+    {
+      "location": "w1",
+      "biome": "Flower"
+    }
+  ],
+  "flabebe": [
+    {
+      "location": "s4",
+      "biome": "Flower"
+    },
+    {
+      "location": "s5",
+      "biome": "Flower"
+    },
+    {
+      "location": "w1",
+      "biome": "Flower"
+    }
+  ],
+  "pachirisu": [
+    {
+      "location": "s4",
+      "biome": "Forest"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "hatenna": [
+    {
+      "location": "s4",
+      "biome": "Lake"
+    },
+    {
+      "location": "w3",
+      "biome": "Lake"
+    }
+  ],
+  "riolu": [
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    }
+  ],
+  "toxel": [
+    {
+      "location": "s4",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    }
+  ],
+  "quilfish": [
+    {
+      "location": "s4",
+      "biome": "Ocean"
+    }
+  ],
+  "fletchinder": [
+    {
+      "location": "s4",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "yungood": [
+    {
+      "location": "s4",
+      "biome": "Rocky"
+    }
+  ],
+  "fomantis": [
+    {
+      "location": "s5",
+      "biome": "Flower"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "thicket",
+      "biome": "Flower"
+    }
+  ],
+  "mankey": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "stantler": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "s5",
+      "biome": "Rocky"
+    }
+  ],
+  "shroomish": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "slakoth": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    }
+  ],
+  "zangoose": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    }
+  ],
+  "seviper": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    }
+  ],
+  "luxio": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    }
+  ],
+  "stunky": [
+    {
+      "location": "s5",
+      "biome": "Forest"
+    },
+    {
+      "location": "s5",
+      "biome": "Lake"
+    },
+    {
+      "location": "s5",
+      "biome": "Prairie"
+    },
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    }
+  ],
+  "lilligan": [
+    {
+      "location": "s6",
+      "biome": "Flower"
+    }
+  ],
+  "flaaffy": [
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    }
+  ],
+  "bombirdier": [
+    {
+      "location": "s6",
+      "biome": "Mountain"
+    },
+    {
+      "location": "s6",
+      "biome": "Ocean"
+    },
+    {
+      "location": "s6",
+      "biome": "Town"
+    },
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    },
+    {
+      "location": "w1",
+      "biome": "Ocean"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "banette": [
+    {
+      "location": "s6",
+      "biome": "Town"
+    }
+  ],
+  "gothorita": [
+    {
+      "location": "s6",
+      "biome": "Town"
+    }
+  ],
+  "sylveon": [
+    {
+      "location": "s6",
+      "biome": "Town"
+    }
+  ],
+  "klefki": [
+    {
+      "location": "s6",
+      "biome": "Town"
+    }
+  ],
+  "jolteon": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "sudowoodo": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "forretress": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "slaking": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "skuntank": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "leafeon": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    }
+  ],
+  "zoroark": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "toedscruel": [
+    {
+      "location": "socarrat",
+      "biome": "Forest"
+    }
+  ],
+  "bruxish": [
+    {
+      "location": "ss",
+      "biome": "Ocean"
+    },
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ],
+  "zorua": [
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Forest"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "impidimp": [
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "morgrem": [
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "grafaiai": [
+    {
+      "location": "thicket",
+      "biome": "Forest"
+    }
+  ],
+  "numel": [
+    {
+      "location": "w1",
+      "biome": "Mountain"
+    }
+  ],
+  "ditto": [
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w2",
+      "biome": "Town"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Town"
+    }
+  ],
+  "staravia": [
+    {
+      "location": "w2",
+      "biome": "Prairie"
+    },
+    {
+      "location": "w3",
+      "biome": "Prairie"
+    }
+  ],
+  "veluza": [
+    {
+      "location": "ws",
+      "biome": "Ocean"
+    }
+  ]
+}

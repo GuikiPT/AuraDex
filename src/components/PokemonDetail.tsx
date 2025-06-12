@@ -8,6 +8,7 @@ import { Pokemon, PokemonSpecies, EvolutionChain, TypeEffectiveness, EvolutionCh
 import { pokemonApi, calculateTypeEffectiveness, formatPokemonName, getPokemonId, getPokemonNameFromUrl, formatLocationName, formatEncounterRate } from '@/utils/pokemon-api';
 import { TYPE_COLORS, EGG_GROUP_NAMES, GROWTH_RATES, VERSION_GROUPS, MOVE_CATEGORIES, ENCOUNTER_METHODS, ENCOUNTER_CONDITIONS } from '@/constants/pokemon';
 import { getSupplementalEncounters, convertSupplementalToEncounterFormat, hasSupplementalDataForGame } from '@/data/supplemental-encounters';
+import { getSvEncounters, convertSvToEncounterFormat } from '@/data/sv-encounters';
 import TypeIcon from './TypeIcon';
 import StatChart from './StatChart';
 import LoadingSpinner from './LoadingSpinner';
@@ -182,6 +183,12 @@ const PokemonDetail = ({ pokemonId }: PokemonDetailProps) => {
                 combinedEncounters.push(...supplementalEncounters);
               }
             }
+          }
+
+          const svData = getSvEncounters(pokemon.name);
+          if (svData) {
+            const svEncounters = convertSvToEncounterFormat(svData);
+            combinedEncounters.push(...svEncounters);
           }
           
           setEncounters(combinedEncounters);
