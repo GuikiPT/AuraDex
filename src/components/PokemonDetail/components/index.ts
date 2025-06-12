@@ -1,0 +1,9 @@
+export { PokemonHeader } from './PokemonHeader';
+export { TabNavigation } from './TabNavigation';
+export { OverviewTab } from './OverviewTab';
+export { StatsTab } from './StatsTab';
+export { TypeDefensesTab } from './TypeDefensesTab';
+export { BreedingTab } from './BreedingTab';
+export { EvolutionTab } from './EvolutionTab';
+export { MovesTab } from './MovesTab';
+export { LocationsTab } from './LocationsTab';
