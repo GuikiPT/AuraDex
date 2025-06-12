@@ -6,6 +6,7 @@ import { Pokemon } from '@/types/pokemon';
 import { formatPokemonName } from '@/utils/pokemon-api';
 import { TYPE_COLORS } from '@/constants/pokemon';
 import TypeIcon from '../../TypeIcon';
+import SearchBar from '../../SearchBar';
 
 interface PokemonHeaderProps {
   pokemon: Pokemon;
@@ -32,13 +33,22 @@ export const PokemonHeader: React.FC<PokemonHeaderProps> = ({
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2280%22%20height%3D%2280%22%20viewBox%3D%220%200%2080%2080%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2240%22%20cy%3D%2240%22%20r%3D%223%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30" />
       
       <div className="container mx-auto px-4 py-6 relative z-10">
-        <button
-          onClick={() => router.push('/')}
-          className="flex items-center text-white hover:text-white/80 transition-colors mb-4 glass-button rounded-xl px-4 py-2 border border-white/20"
-        >
-          <ChevronLeft size={24} className="mr-1" />
-          Back to Pokédex
-        </button>
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+          <button
+            onClick={() => router.push('/')}
+            className="flex items-center text-white hover:text-white/80 transition-colors glass-button rounded-xl px-4 py-2 border border-white/20 w-fit"
+          >
+            <ChevronLeft size={24} className="mr-1" />
+            Back to Pokédex
+          </button>
+          
+          {/* Search Bar */}
+          <div className="w-full lg:w-96">
+            <SearchBar
+              placeholder="Search for another Pokémon..."
+            />
+          </div>
+        </div>
         
         <div className="flex items-center justify-between">
           <div className="text-white">
