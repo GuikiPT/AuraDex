@@ -38,7 +38,7 @@ const SearchBar = ({ onSearchChange, searchTerm = '', placeholder = "Search PokÃ
 
   useEffect(() => {
     const searchPokemon = async () => {
-      if (query.length < 2) {
+      if (!query || query.length < 2) {
         setResults([]);
         setIsOpen(false);
         return;
@@ -47,11 +47,13 @@ const SearchBar = ({ onSearchChange, searchTerm = '', placeholder = "Search PokÃ
       setLoading(true);
       try {
         const searchResults = await pokemonApi.searchPokemon(query);
-        setResults(searchResults.slice(0, 8));
-        setIsOpen(true);
+        const validResults = Array.isArray(searchResults) ? searchResults.slice(0, 8) : [];
+        setResults(validResults);
+        setIsOpen(validResults.length > 0);
       } catch (error) {
         console.error('Search error:', error);
         setResults([]);
+        setIsOpen(false);
       } finally {
         setLoading(false);
       }

@@ -8,6 +8,19 @@ interface TypeDefensesTabProps {
 }
 
 export const TypeDefensesTab: React.FC<TypeDefensesTabProps> = ({ typeEffectiveness }) => {
+  // Early return if no type effectiveness data
+  if (!typeEffectiveness || Object.keys(typeEffectiveness).length === 0) {
+    return (
+      <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
+        <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+          <Shield className="mr-2" size={20} />
+          Type Defenses
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400">No type effectiveness data available.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="glass rounded-xl p-6 border border-white/20 dark:border-gray-700/30">
       <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100 flex items-center">

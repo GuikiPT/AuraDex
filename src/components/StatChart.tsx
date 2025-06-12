@@ -10,6 +10,15 @@ interface StatChartProps {
 }
 
 const StatChart = ({ stats, variant = 'horizontal' }: StatChartProps) => {
+  // Early return if no stats provided
+  if (!stats || !Array.isArray(stats) || stats.length === 0) {
+    return (
+      <div className="p-4 text-center text-gray-500 dark:text-gray-400">
+        No stat data available
+      </div>
+    );
+  }
+
   // Get stat icon based on stat name
   const getStatIcon = (statName: string) => {
     const iconProps = { size: 16, className: "text-current" };
@@ -76,14 +85,19 @@ const StatChart = ({ stats, variant = 'horizontal' }: StatChartProps) => {
     return (
       <div className="space-y-5">
         {stats.map((stat, index) => {
+          // Ensure stat has required properties
+          if (!stat || !stat.stat || typeof stat.base_stat !== 'number') {
+            return null;
+          }
+
           const maxStat = 255;
           const percentage = (stat.base_stat / maxStat) * 100;
-          const statName = STAT_NAMES[stat.stat.name] || stat.stat.name;
+          const statName = STAT_NAMES[stat.stat.name] || stat.stat.name || 'Unknown';
           const colors = getStatColors(stat.base_stat);
           
           return (
             <div 
-              key={index} 
+              key={stat.stat.name || index} 
               className={`${colors.bg} ${colors.border} border rounded-lg p-4 transition-all duration-300 hover:shadow-md group`}
             >
               <div className="flex justify-between items-center mb-3">
@@ -171,10 +185,20 @@ const StatChart = ({ stats, variant = 'horizontal' }: StatChartProps) => {
 
   // Radial variant implementation
   if (variant === 'radial') {
+    const validStats = stats.filter(stat => stat && stat.stat && typeof stat.base_stat === 'number');
+    
+    if (validStats.length === 0) {
+      return (
+        <div className="p-4 text-center text-gray-500 dark:text-gray-400">
+          No valid stat data for radial chart
+        </div>
+      );
+    }
+
     const centerX = 120;
     const centerY = 120;
     const radius = 80;
-    const angleStep = (2 * Math.PI) / stats.length;
+    const angleStep = (2 * Math.PI) / validStats.length;
 
     return (
       <div className="flex flex-col items-center space-y-6">
@@ -197,7 +221,7 @@ const StatChart = ({ stats, variant = 'horizontal' }: StatChartProps) => {
             
             {/* Stat polygons */}
             <polygon
-              points={stats.map((stat, index) => {
+              points={validStats.map((stat, index) => {
                 const angle = index * angleStep;
                 const value = (stat.base_stat / 255) * radius;
                 const x = centerX + Math.cos(angle) * value;
@@ -211,7 +235,7 @@ const StatChart = ({ stats, variant = 'horizontal' }: StatChartProps) => {
             />
             
             {/* Stat points */}
-            {stats.map((stat, index) => {
+            {validStats.map((stat, index) => {
               const angle = index * angleStep;
               const value = (stat.base_stat / 255) * radius;
               const x = centerX + Math.cos(angle) * value;
@@ -220,7 +244,7 @@ const StatChart = ({ stats, variant = 'horizontal' }: StatChartProps) => {
               
               return (
                 <circle
-                  key={index}
+                  key={stat.stat.name || index}
                   cx={x}
                   cy={y}
                   r="4"
@@ -243,12 +267,12 @@ const StatChart = ({ stats, variant = 'horizontal' }: StatChartProps) => {
         
         {/* Stat labels for radial chart */}
         <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-          {stats.map((stat, index) => {
-            const statName = STAT_NAMES[stat.stat.name] || stat.stat.name;
+          {validStats.map((stat, index) => {
+            const statName = STAT_NAMES[stat.stat.name] || stat.stat.name || 'Unknown';
             const colors = getStatColors(stat.base_stat);
             
             return (
-              <div key={index} className={`flex items-center gap-2 ${colors.text}`}>
+              <div key={stat.stat.name || index} className={`flex items-center gap-2 ${colors.text}`}>
                 {getStatIcon(stat.stat.name)}
                 <span className="text-sm font-medium">{statName}</span>
                 <span className="text-sm font-bold ml-auto">{stat.base_stat}</span>

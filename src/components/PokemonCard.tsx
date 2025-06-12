@@ -19,20 +19,25 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
   const [imageError, setImageError] = useState(false);
   const router = useRouter();
 
+  // Early return if pokemon data is invalid
+  if (!pokemon || !pokemon.id || !pokemon.name) {
+    return null;
+  }
+
   const handleClick = () => {
     router.push(`/pokemon/${pokemon.id}`);
   };
 
-  const primaryType = pokemon.types[0]?.type.name;
+  const primaryType = pokemon.types?.[0]?.type?.name;
   const typeColor = TYPE_COLORS[primaryType as keyof typeof TYPE_COLORS] || '#6b7280';
 
   const stats = {
-    hp: pokemon.stats.find(s => s.stat.name === 'hp')?.base_stat || 0,
-    attack: pokemon.stats.find(s => s.stat.name === 'attack')?.base_stat || 0,
-    defense: pokemon.stats.find(s => s.stat.name === 'defense')?.base_stat || 0,
-    specialAttack: pokemon.stats.find(s => s.stat.name === 'special-attack')?.base_stat || 0,
-    specialDefense: pokemon.stats.find(s => s.stat.name === 'special-defense')?.base_stat || 0,
-    speed: pokemon.stats.find(s => s.stat.name === 'speed')?.base_stat || 0,
+    hp: pokemon.stats?.find(s => s.stat?.name === 'hp')?.base_stat || 0,
+    attack: pokemon.stats?.find(s => s.stat?.name === 'attack')?.base_stat || 0,
+    defense: pokemon.stats?.find(s => s.stat?.name === 'defense')?.base_stat || 0,
+    specialAttack: pokemon.stats?.find(s => s.stat?.name === 'special-attack')?.base_stat || 0,
+    specialDefense: pokemon.stats?.find(s => s.stat?.name === 'special-defense')?.base_stat || 0,
+    speed: pokemon.stats?.find(s => s.stat?.name === 'speed')?.base_stat || 0,
   };
 
   return (
@@ -123,8 +128,10 @@ export default function PokemonCard({ pokemon, priority = false }: PokemonCardPr
 
           {/* Types */}
           <div className="flex gap-2 flex-wrap">
-            {pokemon.types.map((type) => (
-              <TypeIcon key={type.type.name} type={type.type.name} size={96} />
+            {(pokemon.types || []).map((type) => (
+              type?.type?.name ? (
+                <TypeIcon key={type.type.name} type={type.type.name} size={96} />
+              ) : null
             ))}
           </div>
 

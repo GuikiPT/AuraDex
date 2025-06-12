@@ -160,18 +160,23 @@ export const MovesTab: React.FC<MovesTabProps> = ({ pokemon }) => {
     }; 
     showLevel?: boolean 
   }) => {
-    const moveDetail = moveDetails[move.move.name];
+    const moveDetail = moveDetails[move?.move?.name];
     const isLoading = moveDetail && 'loading' in moveDetail;
     const actualMoveDetail = !isLoading ? moveDetail as Move : null;
-    const moveCategory = actualMoveDetail?.damage_class.name || 'status';
+    const moveCategory = actualMoveDetail?.damage_class?.name || 'status';
     const categoryInfo = MOVE_CATEGORIES[moveCategory] || MOVE_CATEGORIES.status;
 
     // Auto-load move details when component mounts
     useEffect(() => {
-      if (!moveDetail && move.move.name) {
+      if (!moveDetail && move?.move?.name) {
         loadMoveDetails(move.move.name);
       }
-    }, [move.move.name, moveDetail]);
+    }, [move?.move?.name, moveDetail]);
+
+    // Ensure move has required properties before rendering
+    if (!move?.move?.name) {
+      return null;
+    }
 
     return (
       <tr 

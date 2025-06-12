@@ -64,7 +64,11 @@ export const LocationsTab: React.FC<LocationsTabProps> = ({
   // Group encounters by game version
   const encountersByGame: Record<string, typeof encounters> = {};
   encounters.forEach(encounter => {
-    encounter.version_details.forEach(versionDetail => {
+    // Ensure version_details exists and is an array
+    const versionDetails = encounter.version_details || [];
+    versionDetails.forEach(versionDetail => {
+      if (!versionDetail?.version?.name) return; // Skip invalid version details
+      
       const game = versionDetail.version.name;
       if (!encountersByGame[game]) {
         encountersByGame[game] = [];
@@ -279,7 +283,8 @@ export const LocationsTab: React.FC<LocationsTabProps> = ({
         .filter(game => !selectedVersionGroup || selectedVersionGroup === game)
         .map(game => {
           // Filter encounters by location name if search is active
-          const filteredEncounters = encountersByGame[game].filter(encounter => {
+          const gameEncounters = encountersByGame[game] || [];
+          const filteredEncounters = gameEncounters.filter(encounter => {
             if (!locationFilter) return true;
             const locationArea = locationDetails[encounter.location_area.name];
             const locationName = formatLocationName(encounter.location_area.name);
