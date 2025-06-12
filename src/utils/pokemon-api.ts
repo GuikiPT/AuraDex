@@ -6,6 +6,9 @@ import {
   TypeEffectiveness,
   Move,
   PokemonListResponse,
+  PokemonEncounter,
+  LocationArea,
+  Location,
 } from '@/types/pokemon';
 
 const BASE_URL = 'https://pokeapi.co/api/v2';
@@ -94,6 +97,21 @@ export const pokemonApi = {
   // Get move data
   getMove: async (idOrName: string | number): Promise<Move> => {
     return fetchWithCache<Move>(`/move/${idOrName}`);
+  },
+
+  // Get Pokemon encounter locations
+  getPokemonEncounters: async (idOrName: string | number): Promise<PokemonEncounter[]> => {
+    return fetchWithCache<PokemonEncounter[]>(`/pokemon/${idOrName}/encounters`);
+  },
+
+  // Get location area details
+  getLocationArea: async (idOrName: string | number): Promise<LocationArea> => {
+    return fetchWithCache<LocationArea>(`/location-area/${idOrName}`);
+  },
+
+  // Get location details
+  getLocation: async (idOrName: string | number): Promise<Location> => {
+    return fetchWithCache<Location>(`/location/${idOrName}`);
   },
 
   // Search Pokemon
@@ -196,4 +214,31 @@ export const calculateTypeEffectiveness = (
   });
   
   return effectiveness;
+};
+
+// Location utility functions
+export const formatLocationName = (locationName: string): string => {
+  return locationName
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+export const getLocationAreaId = (url: string): number => {
+  const matches = url.match(/\/location-area\/(\d+)\/$/);
+  return matches ? parseInt(matches[1]) : 0;
+};
+
+export const getLocationId = (url: string): number => {
+  const matches = url.match(/\/location\/(\d+)\/$/);
+  return matches ? parseInt(matches[1]) : 0;
+};
+
+export const formatEncounterRate = (rate: number): string => {
+  if (rate >= 50) return 'Very Common';
+  if (rate >= 30) return 'Common';
+  if (rate >= 20) return 'Uncommon';
+  if (rate >= 10) return 'Rare';
+  if (rate >= 5) return 'Very Rare';
+  return 'Extremely Rare';
 };

@@ -261,3 +261,106 @@ export interface PokemonListResponse {
     url: string;
   }[];
 }
+
+// Location/Encounter Types
+export interface LocationArea {
+  id: number;
+  name: string;
+  game_index: number;
+  encounter_method_rates: EncounterMethodRate[];
+  location: {
+    name: string;
+    url: string;
+  };
+  names: LocationName[];
+  pokemon_encounters: PokemonLocationEncounter[];
+}
+
+export interface LocationName {
+  name: string;
+  language: {
+    name: string;
+    url: string;
+  };
+}
+
+export interface EncounterMethodRate {
+  encounter_method: {
+    name: string;
+    url: string;
+  };
+  version_details: EncounterVersionDetail[];
+}
+
+export interface EncounterVersionDetail {
+  rate: number;
+  version: {
+    name: string;
+    url: string;
+  };
+}
+
+export interface PokemonLocationEncounter {
+  pokemon: {
+    name: string;
+    url: string;
+  };
+  version_details: LocationAreaEncounter[];
+}
+
+export interface LocationAreaEncounter {
+  version: {
+    name: string;
+    url: string;
+  };
+  max_chance: number;
+  encounter_details: EncounterDetail[];
+}
+
+export interface EncounterDetail {
+  min_level: number;
+  max_level: number;
+  condition_values: ConditionValue[];
+  chance: number;
+  method: {
+    name: string;
+    url: string;
+  };
+}
+
+export interface ConditionValue {
+  name: string;
+  url: string;
+}
+
+// Pokemon Encounter Areas - this is what we get from /pokemon/{id}/encounters
+export interface PokemonEncounter {
+  location_area: {
+    name: string;
+    url: string;
+  };
+  version_details: LocationAreaEncounter[];
+}
+
+export interface Location {
+  id: number;
+  name: string;
+  region: {
+    name: string;
+    url: string;
+  } | null;
+  names: LocationName[];
+  game_indices: GameIndex[];
+  areas: {
+    name: string;
+    url: string;
+  }[];
+}
+
+export interface GameIndex {
+  game_index: number;
+  generation: {
+    name: string;
+    url: string;
+  };
+}
