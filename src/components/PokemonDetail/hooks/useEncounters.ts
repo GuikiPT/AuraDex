@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { PokemonEncounter, LocationArea } from '@/types/pokemon';
 import { pokemonApi } from '@/utils/pokemon-api';
 import { getSupplementalEncounters, convertSupplementalToEncounterFormat } from '@/data/supplemental-encounters';
@@ -11,7 +11,7 @@ export const useEncounters = (pokemonId: string): UseEncountersReturn => {
   const [locationFilter, setLocationFilter] = useState('');
   const [selectedVersionGroup, setSelectedVersionGroup] = useState<string>('');
 
-  const fetchEncounterData = async () => {
+  const fetchEncounterData = useCallback(async () => {
     try {
       setEncountersLoading(true);
       
@@ -82,7 +82,7 @@ export const useEncounters = (pokemonId: string): UseEncountersReturn => {
     } finally {
       setEncountersLoading(false);
     }
-  };
+  }, [pokemonId]);
 
   return {
     encounters,

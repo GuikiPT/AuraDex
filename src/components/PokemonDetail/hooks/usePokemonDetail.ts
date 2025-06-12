@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Pokemon, PokemonSpecies, EvolutionChain, TypeEffectiveness } from '@/types/pokemon';
 import { pokemonApi, calculateTypeEffectiveness, getPokemonNameFromUrl, getPokemonId } from '@/utils/pokemon-api';
 import { UsePokemonDetailReturn } from '../types';
@@ -10,13 +10,13 @@ export const usePokemonDetail = (pokemonId: string): UsePokemonDetailReturn => {
   const [megaEvolutions, setMegaEvolutions] = useState<Pokemon[]>([]);
   const [megaEvolutionsLoading, setMegaEvolutionsLoading] = useState(false);
   const [typeEffectiveness, setTypeEffectiveness] = useState<Record<string, number>>({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const fetchPokemonData = async () => {
+  const fetchPokemonData = useCallback(async () => {
     try {
       setLoading(true);
       
-      // Fetch basic Pokemon data
+      // Fetch main Pokemon data
       const pokemonData = await pokemonApi.getPokemon(pokemonId);
       setPokemon(pokemonData);
       
@@ -24,10 +24,10 @@ export const usePokemonDetail = (pokemonId: string): UsePokemonDetailReturn => {
       const speciesData = await pokemonApi.getPokemonSpecies(pokemonId);
       setSpecies(speciesData);
       
-      // Fetch evolution chain
-      if (speciesData.evolution_chain?.url) {
-        const evolutionId = getPokemonId(speciesData.evolution_chain.url);
-        const evolutionData = await pokemonApi.getEvolutionChain(evolutionId);
+      // Fetch evolution chain if available
+      if (speciesData.evolution_chain) {
+        const evolutionChainId = getPokemonId(speciesData.evolution_chain.url);
+        const evolutionData = await pokemonApi.getEvolutionChain(evolutionChainId);
         setEvolutionChain(evolutionData);
       }
       
@@ -49,35 +49,6 @@ export const usePokemonDetail = (pokemonId: string): UsePokemonDetailReturn => {
         }
       }
       
-      // Check for other mega forms by species relationships
-      // TODO: Fix type issue with evolves_from_species
-      /*
-      if ((speciesData as any).evolves_from_species) {
-        try {
-          const baseSpeciesName = getPokemonNameFromUrl((speciesData as any).evolves_from_species.url);
-          const baseSpeciesData = await pokemonApi.getPokemonSpecies(baseSpeciesName);
-          
-          if (baseSpeciesData.varieties && baseSpeciesData.varieties.length > 1) {
-            for (const variety of baseSpeciesData.varieties) {
-              if (variety.pokemon.name.includes('mega')) {
-                try {
-                  const pokemonName = getPokemonNameFromUrl(variety.pokemon.url);
-                  const megaData = await pokemonApi.getPokemon(pokemonName);
-                  if (!megaEvolutionData.find(m => m.id === megaData.id)) {
-                    megaEvolutionData.push(megaData);
-                  }
-                } catch (error) {
-                  console.error(`Failed to fetch species mega evolution ${variety.pokemon.name}:`, error);
-                }
-              }
-            }
-          }
-        } catch (error) {
-          console.error(`Failed to fetch species data for ${pokemonData.name}:`, error);
-        }
-      }
-      */
-      
       setMegaEvolutions(megaEvolutionData);
       setMegaEvolutionsLoading(false);
       
@@ -98,7 +69,7 @@ export const usePokemonDetail = (pokemonId: string): UsePokemonDetailReturn => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pokemonId]);
 
   return {
     pokemon,

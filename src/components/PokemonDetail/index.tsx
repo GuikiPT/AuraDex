@@ -47,6 +47,7 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonId }) => {
   const {
     encounters,
     encountersLoading,
+    locationDetails,
     fetchEncounterData
   } = useEncounters(pokemonId);
 
@@ -210,6 +211,8 @@ const PokemonDetail: React.FC<PokemonDetailProps> = ({ pokemonId }) => {
           <LocationsTab
             encounters={encounters}
             encountersLoading={encountersLoading}
+            pokemonId={pokemon?.id}
+            locationDetails={locationDetails}
           />
         );
       default:
